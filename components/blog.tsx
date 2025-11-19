@@ -53,7 +53,6 @@ export default function Blog() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-100 group hover-smooth"
                 whileHover={{ y: -10, scale: 1.02 }}
-                transition={{ duration: 0.1, ease: 'easeOut' }}
               >
                 {article.coverImage ? (
                   <div className="relative h-48 w-full">
