@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Aureate';
+  src: url('/fonts/Aureateregular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  color: #031127;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  * {
+    cursor: none !important;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Aureate', serif;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.gradient-overlay {
+  background: linear-gradient(135deg, rgba(178, 137, 71, 0.1) 0%, rgba(3, 17, 39, 0.1) 100%);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #b28947 0%, #e6c980 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #b28947 0%, #e6c980 100%);
+}
+
+.shadow-gold {
+  box-shadow: 0 10px 40px rgba(178, 137, 71, 0.2);
+}
+
+.hover-smooth {
+  will-change: transform, opacity, box-shadow, color, background-color, border-color;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out, box-shadow 0.1s ease-out, color 0.1s ease-out, background-color 0.1s ease-out, border-color 0.1s ease-out;
+}
