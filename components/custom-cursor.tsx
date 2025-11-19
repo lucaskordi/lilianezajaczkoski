@@ -25,8 +25,8 @@ export default function CustomCursor() {
   
   const maxDistance = 12
   
-  const pointerXFinal = useTransform([cursorX, pointerOffsetX], ([x, offsetX]) => x + offsetX)
-  const pointerYFinal = useTransform([cursorY, pointerOffsetY], ([y, offsetY]) => y + offsetY)
+  const pointerXFinal = useTransform([cursorX, pointerOffsetX], ([x, offsetX]: [number, number]) => x + offsetX)
+  const pointerYFinal = useTransform([cursorY, pointerOffsetY], ([y, offsetY]: [number, number]) => y + offsetY)
 
   useEffect(() => {
     const checkDesktop = () => {
