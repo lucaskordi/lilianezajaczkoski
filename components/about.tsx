@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 import GoldSweep from './gold-sweep'
 
 export default function About() {
@@ -46,16 +47,15 @@ export default function About() {
             className="relative md:-mt-12"
             style={{ y }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full h-[600px]">
               <div className="absolute inset-0 bg-gradient-to-br from-[#b28947]/20 to-[#031127]/20 z-10" />
-              <div className="w-full h-[600px] bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400">
-                <div className="text-center">
-                  <svg className="w-24 h-24 mx-auto mb-4" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                  <p className="text-sm">Foto Liliane</p>
-                </div>
-              </div>
+              <Image
+                src="/fotoliliane.jpeg"
+                alt="Liliane Zajaczkoski"
+                fill
+                className="object-cover"
+                quality={90}
+              />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#b28947] to-[#e6c980] rounded-2xl opacity-20 blur-2xl pointer-events-none" />
           </motion.div>

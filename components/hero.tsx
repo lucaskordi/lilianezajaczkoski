@@ -162,7 +162,7 @@ export default function Hero() {
                   WebkitTransform: 'translateZ(0)',
                 }}
               >
-                <span className="relative z-20">Agende uma Consulta</span>
+                <span className="relative z-20">Entre em Contato</span>
                 <motion.span
                   className="absolute inset-0 pointer-events-none z-10"
                   style={{

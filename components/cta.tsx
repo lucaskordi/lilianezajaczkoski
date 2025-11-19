@@ -31,7 +31,7 @@ export default function CTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.1, ease: 'easeOut', delay: 0.2 }}
         >
-          Agende uma Consulta
+          Entre em Contato
         </motion.a>
         <motion.span
           className="absolute inset-0 pointer-events-none"
