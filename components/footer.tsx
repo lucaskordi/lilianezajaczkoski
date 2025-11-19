@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <div className="mb-4 flex justify-center md:justify-start">
               <Image
-                src="/logoliliane.svg"
+                src="/logolzatfinal.svg"
                 alt="Liliane Zajaczkoski - Advocacia & Consultoria"
                 width={200}
                 height={56}
