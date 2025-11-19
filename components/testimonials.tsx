@@ -31,7 +31,7 @@ export default function Testimonials() {
     const interval = setInterval(() => {
       setDirection(1)
       setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
+    }, 8000)
     return () => clearInterval(interval)
   }, [])
 
@@ -105,7 +105,7 @@ export default function Testimonials() {
             </svg>
           </motion.button>
 
-          <div className="relative flex-1 min-h-[300px] md:min-h-[400px] overflow-hidden rounded-2xl">
+          <div className="relative flex-1 min-h-[350px] md:min-h-[400px] overflow-hidden rounded-2xl">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentIndex}
@@ -115,27 +115,27 @@ export default function Testimonials() {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.5 }}
-                className="absolute inset-0 bg-white rounded-2xl p-6 md:p-12 shadow-2xl border border-gray-100 flex flex-col"
-                style={{ minHeight: '300px' }}
+                className="absolute inset-0 bg-white rounded-2xl p-6 md:p-12 shadow-2xl border border-gray-100 flex flex-col overflow-y-auto"
+                style={{ minHeight: '350px' }}
               >
-                <div className="flex flex-col items-center justify-center h-full text-center space-y-4 md:space-y-6">
-                  <div className="text-4xl md:text-6xl text-[#b28947] mb-2 md:mb-4">"</div>
+                <div className="flex flex-col items-center justify-center min-h-full text-center space-y-4 md:space-y-6 py-2">
+                  <div className="text-4xl md:text-6xl text-[#b28947] mb-1 md:mb-4 flex-shrink-0">"</div>
                   
-                  <p className="text-base md:text-xl lg:text-2xl text-[#031127]/80 leading-relaxed font-light max-w-3xl flex-grow flex items-center px-2">
+                  <p className="text-sm md:text-xl lg:text-2xl text-[#031127]/80 leading-relaxed font-light max-w-3xl flex-grow flex items-center px-2">
                     {testimonials[currentIndex].text}
                   </p>
 
-                  <div className="flex gap-1 mb-2 md:mb-4">
+                  <div className="flex gap-1 mb-2 md:mb-4 flex-shrink-0">
                     {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                      <svg key={i} className="w-5 h-5 md:w-6 md:h-6 text-[#b28947]" fill="currentColor" viewBox="0 0 24 24">
+                      <svg key={i} className="w-4 h-4 md:w-6 md:h-6 text-[#b28947]" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                       </svg>
                     ))}
                   </div>
 
-                  <div>
-                    <p className="font-bold text-[#031127] text-base md:text-lg">{testimonials[currentIndex].name}</p>
-                    <p className="text-[#031127]/60 text-xs md:text-sm">{testimonials[currentIndex].role} • {testimonials[currentIndex].company}</p>
+                  <div className="flex-shrink-0">
+                    <p className="font-bold text-[#031127] text-sm md:text-lg">{testimonials[currentIndex].name}</p>
+                    <p className="text-[#031127]/60 text-xs md:text-sm mt-1">{testimonials[currentIndex].role} • {testimonials[currentIndex].company}</p>
                   </div>
                 </div>
               </motion.div>

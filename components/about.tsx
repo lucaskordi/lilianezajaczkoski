@@ -41,12 +41,12 @@ export default function About() {
           </GoldSweep>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-16 md:items-center">
           <motion.div
-            className="relative"
+            className="relative md:-mt-12"
             style={{ y }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full">
               <div className="absolute inset-0 bg-gradient-to-br from-[#b28947]/20 to-[#031127]/20 z-10" />
               <div className="w-full h-[600px] bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400">
                 <div className="text-center">
@@ -57,7 +57,7 @@ export default function About() {
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#b28947] to-[#e6c980] rounded-2xl opacity-20 blur-2xl" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#b28947] to-[#e6c980] rounded-2xl opacity-20 blur-2xl pointer-events-none" />
           </motion.div>
 
           <motion.div
@@ -65,7 +65,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-6 flex flex-col justify-center"
           >
             <h3 className="text-3xl font-serif font-bold text-[#031127]">
               Liliane Zajaczkoski

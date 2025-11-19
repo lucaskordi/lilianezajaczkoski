@@ -69,31 +69,31 @@ export default function Contact() {
           </GoldSweep>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-12 items-stretch">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="flex flex-col gap-6"
           >
             {contactInfo.map((info, index) => (
               <motion.a
                 key={index}
                 href={info.link}
-                className="flex items-start gap-4 p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-[#b28947]/50 transition-all duration-100 group hover-smooth"
+                className="flex items-center gap-4 p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-[#b28947]/50 transition-all duration-100 group hover-smooth flex-1"
                 whileHover={{ x: 10, scale: 1.02 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05, duration: 0.1, ease: 'easeOut' }}
               >
-                <div className="text-white">
-                  <info.Icon className="w-8 h-8" />
+                <div className="text-white flex-shrink-0">
+                  <info.Icon className="w-10 h-10" />
                 </div>
                 <div>
-                  <p className="text-white/60 text-sm mb-1">{info.label}</p>
-                  <p className="text-white font-semibold group-hover:text-[#b28947] transition-colors duration-100">
+                  <p className="text-white/60 text-sm mb-2">{info.label}</p>
+                  <p className="text-white font-semibold text-lg group-hover:text-[#b28947] transition-colors duration-100">
                     {info.value}
                   </p>
                 </div>
@@ -107,9 +107,9 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+            className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 flex flex-col"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 flex flex-col flex-1">
               <div>
                 <input
                   type="text"
@@ -117,7 +117,7 @@ export default function Contact() {
                   placeholder="Nome completo"
                   value={formData.nome}
                   onChange={handleChange}
-                  className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all duration-100"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all duration-100"
                   required
                 />
               </div>
@@ -129,7 +129,7 @@ export default function Contact() {
                   placeholder="E-mail"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all duration-100"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all duration-100"
                   required
                 />
                 <input
@@ -138,7 +138,7 @@ export default function Contact() {
                   placeholder="Telefone"
                   value={formData.telefone}
                   onChange={handleChange}
-                  className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all duration-100"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all duration-100"
                   required
                 />
               </div>
@@ -150,19 +150,18 @@ export default function Contact() {
                   placeholder="Assunto"
                   value={formData.assunto}
                   onChange={handleChange}
-                  className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all duration-100"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all duration-100"
                   required
                 />
               </div>
 
-              <div>
+              <div className="flex-1 flex flex-col min-h-[120px]">
                 <textarea
                   name="mensagem"
                   placeholder="Mensagem"
                   value={formData.mensagem}
                   onChange={handleChange}
-                  rows={6}
-                  className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all resize-none"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all resize-none flex-1 min-h-[120px]"
                   required
                 />
               </div>
