@@ -40,7 +40,7 @@ export default function GoldSweep({ children, className = '', isText = false, is
 
   if (isButton) {
     return (
-      <span className={`relative inline-block ${className}`}>
+      <span className={`relative inline-block overflow-hidden ${className}`}>
         {children}
         <motion.span
           className="absolute inset-0 pointer-events-none"
@@ -48,6 +48,7 @@ export default function GoldSweep({ children, className = '', isText = false, is
             background: 'linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent)',
             mixBlendMode: 'overlay',
             borderRadius: 'inherit',
+            WebkitBorderRadius: 'inherit',
           }}
           animate={{
             x: ['-100%', '100%'],

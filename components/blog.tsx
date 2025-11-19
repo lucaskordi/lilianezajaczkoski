@@ -44,24 +44,25 @@ export default function Blog() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {featuredArticles.map((article, index) => (
-            <Link href={`/blog/${article.slug}`} className="block">
-              <motion.article
-                key={article.slug}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-100 group hover-smooth"
-                whileHover={{ y: -10, scale: 1.02 }}
-              >
+            <motion.article
+              key={article.slug}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-100 group hover-smooth"
+              whileHover={{ y: -10, scale: 1.02 }}
+            >
+              <Link href={`/blog/${article.slug}`} className="block">
                 {article.coverImage ? (
-                  <div className="relative h-48 w-full">
+                  <div className="relative h-48 w-full bg-gray-100">
                     <Image
                       src={article.coverImage}
                       alt={article.title}
                       fill
                       className="object-cover"
                       quality={85}
+                      priority={index === 0}
                     />
                   </div>
                 ) : (
@@ -98,8 +99,8 @@ export default function Blog() {
                     </svg>
                   </span>
                 </div>
-              </motion.article>
-            </Link>
+              </Link>
+            </motion.article>
           ))}
         </div>
 

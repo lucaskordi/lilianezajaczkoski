@@ -149,8 +149,18 @@ export default function Hero() {
             >
               <motion.a
                 href="#contato"
-                className="relative px-8 py-4 bg-gradient-to-r from-[#b28947] to-[#e6c980] text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover-smooth overflow-hidden"
+                className="relative px-8 py-4 bg-gradient-to-r from-[#b28947] to-[#e6c980] text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover-smooth"
                 whileHover={{ y: -2 }}
+                style={{
+                  borderRadius: '9999px',
+                  WebkitBorderRadius: '9999px',
+                  overflow: 'hidden',
+                  isolation: 'isolate',
+                  WebkitMaskImage: '-webkit-radial-gradient(white, white)',
+                  maskImage: 'radial-gradient(white, white)',
+                  transform: 'translateZ(0)',
+                  WebkitTransform: 'translateZ(0)',
+                }}
               >
                 <span className="relative z-20">Agende uma Consulta</span>
                 <motion.span
@@ -159,6 +169,12 @@ export default function Hero() {
                     background: 'linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent)',
                     mixBlendMode: 'overlay',
                     borderRadius: '9999px',
+                    WebkitBorderRadius: '9999px',
+                    width: '100%',
+                    height: '100%',
+                    transform: 'translateZ(0)',
+                    WebkitTransform: 'translateZ(0)',
+                    willChange: 'transform',
                   }}
                   animate={{
                     x: ['-100%', '100%'],
