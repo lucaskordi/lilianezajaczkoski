@@ -25,8 +25,8 @@ export default function CustomCursor() {
   
   const maxDistance = 12
   
-  const pointerXFinal = useTransform([cursorX, pointerOffsetX], ([x, offsetX]: [number, number]) => x + offsetX)
-  const pointerYFinal = useTransform([cursorY, pointerOffsetY], ([y, offsetY]: [number, number]) => y + offsetY)
+  const pointerXFinal = useMotionValue(0)
+  const pointerYFinal = useMotionValue(0)
 
   useEffect(() => {
     const checkDesktop = () => {
@@ -82,6 +82,9 @@ export default function CustomCursor() {
       
       pointerOffsetX.set(pointerX.get() - e.clientX)
       pointerOffsetY.set(pointerY.get() - e.clientY)
+      
+      pointerXFinal.set(e.clientX + pointerOffsetX.get())
+      pointerYFinal.set(e.clientY + pointerOffsetY.get())
     }
 
     const handleMouseEnter = () => setIsVisible(true)
@@ -122,6 +125,8 @@ export default function CustomCursor() {
         velocityY.set(0)
         pointerOffsetX.set(0)
         pointerOffsetY.set(0)
+        pointerXFinal.set(currentCursorX)
+        pointerYFinal.set(currentCursorY)
       } else {
         const returnForce = 0.15
         const newX = currentPointerX - distanceX * returnForce
@@ -142,6 +147,9 @@ export default function CustomCursor() {
           pointerOffsetX.set(offsetX)
           pointerOffsetY.set(offsetY)
         }
+        
+        pointerXFinal.set(currentCursorX + pointerOffsetX.get())
+        pointerYFinal.set(currentCursorY + pointerOffsetY.get())
         
         velocityX.set(velocityX.get() * 0.9)
         velocityY.set(velocityY.get() * 0.9)
