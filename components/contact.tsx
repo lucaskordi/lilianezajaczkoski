@@ -46,8 +46,8 @@ export default function Contact() {
       className="py-32 bg-[#031127] relative overflow-hidden"
     >
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#b28947]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#e6c980]/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#957152]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#e0ba9b]/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
@@ -65,7 +65,7 @@ export default function Contact() {
             Estamos prontos para ajudar você. Entre em contato e agende sua consulta.
           </p>
           <GoldSweep isLine className="w-24 h-1 mx-auto mt-4">
-            <div className="w-full h-full bg-gradient-to-r from-[#b28947] to-[#e6c980]" />
+            <div className="w-full h-full bg-gradient-to-r from-[#957152] to-[#e0ba9b]" />
           </GoldSweep>
         </motion.div>
 
@@ -81,7 +81,7 @@ export default function Contact() {
               <motion.a
                 key={index}
                 href={info.link}
-                className="flex items-center gap-4 p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-[#b28947]/50 transition-all duration-100 group hover-smooth flex-1"
+                className="flex items-center gap-4 p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-[#957152]/50 transition-all duration-100 group hover-smooth flex-1"
                 whileHover={{ x: 10, scale: 1.02 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -93,7 +93,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-white/60 text-sm mb-2">{info.label}</p>
-                  <p className="text-white font-semibold text-lg group-hover:text-[#b28947] transition-colors duration-100">
+                  <p className="text-white font-semibold text-lg group-hover:text-[#957152] transition-colors duration-100">
                     {info.value}
                   </p>
                 </div>
@@ -117,7 +117,7 @@ export default function Contact() {
                   placeholder="Nome completo"
                   value={formData.nome}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all duration-100"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#957152] focus:bg-white/10 transition-all duration-100"
                   required
                 />
               </div>
@@ -129,7 +129,7 @@ export default function Contact() {
                   placeholder="E-mail"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all duration-100"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#957152] focus:bg-white/10 transition-all duration-100"
                   required
                 />
                 <input
@@ -138,7 +138,7 @@ export default function Contact() {
                   placeholder="Telefone"
                   value={formData.telefone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all duration-100"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#957152] focus:bg-white/10 transition-all duration-100"
                   required
                 />
               </div>
@@ -150,7 +150,7 @@ export default function Contact() {
                   placeholder="Assunto"
                   value={formData.assunto}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all duration-100"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#957152] focus:bg-white/10 transition-all duration-100"
                   required
                 />
               </div>
@@ -161,14 +161,14 @@ export default function Contact() {
                   placeholder="Mensagem"
                   value={formData.mensagem}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#b28947] focus:bg-white/10 transition-all resize-none flex-1 min-h-[120px]"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#957152] focus:bg-white/10 transition-all resize-none flex-1 min-h-[120px]"
                   required
                 />
               </div>
 
               <motion.button
                 type="submit"
-                className="relative w-full px-8 py-4 bg-gradient-to-r from-[#b28947] to-[#e6c980] text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover-smooth"
+                className="relative w-full px-8 py-4 bg-gradient-to-r from-[#957152] to-[#e0ba9b] text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover-smooth"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 style={{

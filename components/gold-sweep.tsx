@@ -71,8 +71,8 @@ export default function GoldSweep({ children, className = '', isText = false, is
         <motion.div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, transparent, rgba(230, 201, 128, 0.8), rgba(178, 137, 71, 0.6), transparent)',
-            boxShadow: '0 0 15px rgba(230, 201, 128, 0.6)',
+            background: 'linear-gradient(to right, transparent, rgba(224, 186, 155, 0.8), rgba(149, 113, 82, 0.6), transparent)',
+            boxShadow: '0 0 15px rgba(224, 186, 155, 0.6)',
           }}
           animate={{
             x: ['-100%', '100%'],

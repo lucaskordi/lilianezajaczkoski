@@ -35,10 +35,12 @@ function AnimatedNumber({ value, suffix = '', isInView }: { value: number, suffi
   return (
     <span
       style={{
-        background: 'linear-gradient(135deg, #b28947 0%, #e6c980 100%)',
+        background: 'linear-gradient(135deg, #957152 0%, #e0ba9b 100%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
-        backgroundClip: 'text'
+        backgroundClip: 'text',
+        color: 'transparent',
+        display: 'inline-block'
       }}
     >
       {displayValue}{suffix}
@@ -70,15 +72,16 @@ export default function Stats() {
                 <stat.Icon className="w-12 h-12" />
               </motion.div>
               <motion.h3
-                className="text-4xl md:text-5xl font-serif font-bold mb-2"
-                initial={{ y: 30, opacity: 0 }}
-                animate={isInView ? { y: 0, opacity: 1 } : {}}
+                className="text-4xl md:text-5xl font-serif font-bold mb-2 inline-block"
+                initial={{ y: 30 }}
+                animate={isInView ? { y: 0 } : { y: 30 }}
                 transition={{ duration: 0.8, delay: index * 0.1 + 0.2, ease: 'easeOut' }}
                 style={{
-                  background: 'linear-gradient(135deg, #b28947 0%, #e6c980 100%)',
+                  background: 'linear-gradient(135deg, #957152 0%, #e0ba9b 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
+                  backgroundClip: 'text',
+                  color: 'transparent'
                 }}
               >
                 {stat.number.includes('/') ? (

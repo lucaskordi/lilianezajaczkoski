@@ -67,12 +67,12 @@ export default function Process() {
             Processo transparente e eficiente para garantir os melhores resultados
           </p>
           <GoldSweep isLine className="w-24 h-1 mx-auto mt-4">
-            <div className="w-full h-full bg-gradient-to-r from-[#b28947] to-[#e6c980]" />
+            <div className="w-full h-full bg-gradient-to-r from-[#957152] to-[#e0ba9b]" />
           </GoldSweep>
         </motion.div>
 
         <div className="relative">
-          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#b28947]/20 via-[#e6c980]/20 to-[#b28947]/20 transform -translate-y-1/2" />
+          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#957152]/20 via-[#e0ba9b]/20 to-[#957152]/20 transform -translate-y-1/2" />
           
           <div className="grid md:grid-cols-5 gap-8">
             {steps.map((step, index) => (
@@ -91,12 +91,13 @@ export default function Process() {
                 >
                   <div className="flex items-center justify-between mb-4">
                     <span 
-                      className="text-6xl font-serif font-bold"
+                      className="text-6xl font-serif font-bold inline-block"
                       style={{
-                        background: 'linear-gradient(135deg, #b28947 0%, #e6c980 100%)',
+                        background: 'linear-gradient(135deg, #957152 0%, #e0ba9b 100%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         backgroundClip: 'text',
+                        color: 'transparent',
                         opacity: 0.3
                       }}
                     >

@@ -62,7 +62,7 @@ export default function PracticeAreas() {
             Expertise em múltiplas áreas do direito para atender todas as suas necessidades jurídicas
           </p>
             <GoldSweep isLine className="w-24 h-1 mx-auto mt-4">
-              <div className="w-full h-full bg-gradient-to-r from-[#b28947] to-[#e6c980]" />
+              <div className="w-full h-full bg-gradient-to-r from-[#957152] to-[#e0ba9b]" />
             </GoldSweep>
         </motion.div>
 
@@ -80,20 +80,20 @@ export default function PracticeAreas() {
             >
               <motion.div
                 className={`bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 h-full transition-all duration-100 hover-smooth ${
-                  hoveredIndex === index ? 'border-[#b28947]/50 bg-white/10 shadow-lg shadow-[#b28947]/10' : ''
+                  hoveredIndex === index ? 'border-[#957152]/50 bg-white/10 shadow-lg shadow-[#957152]/10' : ''
                 }`}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.1, ease: 'easeOut' }}
               >
                 <motion.div
-                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-6 text-[#b28947] border border-[#b28947]/20 bg-[#b28947]/5"
+                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-6 text-[#957152] border border-[#957152]/20 bg-[#957152]/5"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.1, ease: 'easeOut' }}
                 >
                   <area.Icon className="w-6 h-6" />
                 </motion.div>
                 
-                <h3 className="text-xl font-serif font-bold text-white mb-3 group-hover:text-[#b28947] transition-colors duration-100">
+                <h3 className="text-xl font-serif font-bold text-white mb-3 group-hover:text-[#957152] transition-colors duration-100">
                   {area.title}
                 </h3>
                 
@@ -103,7 +103,7 @@ export default function PracticeAreas() {
 
                 <motion.a
                   href="#contato"
-                  className="inline-flex items-center text-[#b28947] font-medium text-sm group-hover:gap-2 transition-all duration-100 hover-smooth"
+                  className="inline-flex items-center text-[#957152] font-medium text-sm group-hover:gap-2 transition-all duration-100 hover-smooth"
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.1, ease: 'easeOut' }}
                 >

@@ -51,7 +51,7 @@ export default function FAQ() {
             Tire suas dúvidas sobre nossos serviços e processos
           </p>
           <GoldSweep isLine className="w-24 h-1 mx-auto mt-4">
-            <div className="w-full h-full bg-gradient-to-r from-[#b28947] to-[#e6c980]" />
+            <div className="w-full h-full bg-gradient-to-r from-[#957152] to-[#e0ba9b]" />
           </GoldSweep>
         </motion.div>
 
@@ -69,14 +69,14 @@ export default function FAQ() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-6 py-5 flex items-center justify-between text-left group"
               >
-                <span className="text-white font-semibold pr-4 group-hover:text-[#b28947] transition-colors duration-100">
+                <span className="text-white font-semibold pr-4 group-hover:text-[#957152] transition-colors duration-100">
                   {faq.question}
                 </span>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <svg className="w-5 h-5 text-[#b28947] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-[#957152] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </motion.div>

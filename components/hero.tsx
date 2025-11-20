@@ -44,9 +44,9 @@ export default function Hero() {
         >
           <defs>
             <linearGradient id="goldWave" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#b28947" stopOpacity="0.4" />
-              <stop offset="50%" stopColor="#e6c980" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#b28947" stopOpacity="0.2" />
+              <stop offset="0%" stopColor="#957152" stopOpacity="0.4" />
+              <stop offset="50%" stopColor="#e0ba9b" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#957152" stopOpacity="0.2" />
             </linearGradient>
           </defs>
           <motion.path
@@ -95,7 +95,7 @@ export default function Hero() {
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-[#b28947]/20 rounded-full"
+            className="absolute w-1 h-1 bg-[#957152]/20 rounded-full"
             style={{
               left: `${20 + i * 15}%`,
               top: `${30 + i * 10}%`,
@@ -149,7 +149,7 @@ export default function Hero() {
             >
               <motion.a
                 href="#contato"
-                className="relative px-8 py-4 bg-gradient-to-r from-[#b28947] to-[#e6c980] text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover-smooth"
+                className="relative px-8 py-4 bg-gradient-to-r from-[#957152] to-[#e0ba9b] text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover-smooth"
                 whileHover={{ y: -2 }}
                 style={{
                   borderRadius: '9999px',

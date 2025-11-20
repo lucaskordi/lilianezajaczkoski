@@ -38,7 +38,7 @@ export default function About() {
             Sobre Mim
           </h2>
           <GoldSweep isLine className="w-24 h-1 mx-auto">
-            <div className="w-full h-full bg-gradient-to-r from-[#b28947] to-[#e6c980]" />
+            <div className="w-full h-full bg-gradient-to-r from-[#957152] to-[#e0ba9b]" />
           </GoldSweep>
         </motion.div>
 
@@ -48,7 +48,7 @@ export default function About() {
             style={{ y }}
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full h-[600px]">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#b28947]/20 to-[#031127]/20 z-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#957152]/20 to-[#031127]/20 z-10" />
               <Image
                 src="/fotoliliane.jpeg"
                 alt="Liliane Zajaczkoski"
@@ -57,7 +57,7 @@ export default function About() {
                 quality={90}
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#b28947] to-[#e6c980] rounded-2xl opacity-20 blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#957152] to-[#e0ba9b] rounded-2xl opacity-20 blur-2xl pointer-events-none" />
           </motion.div>
 
           <motion.div

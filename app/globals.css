@@ -46,22 +46,24 @@ h1, h2, h3, h4 {
 }
 
 .gradient-overlay {
-  background: linear-gradient(135deg, rgba(178, 137, 71, 0.1) 0%, rgba(3, 17, 39, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(149, 113, 82, 0.1) 0%, rgba(3, 17, 39, 0.1) 100%);
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #b28947 0%, #e6c980 100%);
+  background: linear-gradient(135deg, #957152 0%, #e0ba9b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 
 .gold-gradient-bg {
-  background: linear-gradient(135deg, #b28947 0%, #e6c980 100%);
+  background: linear-gradient(135deg, #957152 0%, #e0ba9b 100%);
 }
 
 .shadow-gold {
-  box-shadow: 0 10px 40px rgba(178, 137, 71, 0.2);
+  box-shadow: 0 10px 40px rgba(149, 113, 82, 0.2);
 }
 
 .hover-smooth {

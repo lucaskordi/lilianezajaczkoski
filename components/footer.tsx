@@ -6,7 +6,7 @@ import Image from 'next/image'
 export default function Footer() {
   return (
     <motion.footer
-      className="bg-[#020B19] border-t border-[#b28947]/20 py-12"
+      className="bg-[#020B19] border-t border-[#957152]/20 py-12"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -35,7 +35,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {['Sobre', 'Áreas de Atuação', 'Processos', 'Depoimentos'].map((link) => (
                 <li key={link}>
-                  <a href={`#${link.toLowerCase()}`} className="text-white/60 hover:text-[#b28947] text-sm transition-colors duration-100">
+                  <a href={`#${link.toLowerCase()}`} className="text-white/60 hover:text-[#957152] text-sm transition-colors duration-100">
                     {link}
                   </a>
                 </li>
@@ -48,7 +48,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {['Criminal', 'Tributário', 'Previdenciário', 'Trabalhista', 'Cível'].map((area) => (
                 <li key={area}>
-                  <a href="#areas" className="text-white/60 hover:text-[#b28947] text-sm transition-colors duration-100">
+                  <a href="#areas" className="text-white/60 hover:text-[#957152] text-sm transition-colors duration-100">
                     {area}
                   </a>
                 </li>
@@ -72,7 +72,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <p className="text-white/60 text-sm">OAB/PR 123.456</p>
-            <a href="/politica-de-privacidade" className="text-white/60 hover:text-[#b28947] text-sm transition-colors duration-100">
+            <a href="/politica-de-privacidade" className="text-white/60 hover:text-[#957152] text-sm transition-colors duration-100">
               Política de Privacidade
             </a>
           </div>

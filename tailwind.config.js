@@ -11,13 +11,13 @@ module.exports = {
         navy: '#031127',
         navyDark: '#020B19',
         gold: {
-          DEFAULT: '#b28947',
-          start: '#b28947',
-          end: '#e6c980',
+          DEFAULT: '#957152',
+          start: '#957152',
+          end: '#e0ba9b',
         },
       },
       backgroundImage: {
-        'gold-gradient': 'linear-gradient(to right, #b28947, #e6c980)',
+        'gold-gradient': 'linear-gradient(to right, #957152, #e0ba9b)',
       },
       fontFamily: {
         serif: ['Aureate', 'serif'],

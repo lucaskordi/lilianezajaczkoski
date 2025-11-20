@@ -27,7 +27,7 @@ export default function BlogPage() {
             <p className="text-[#031127]/70 text-lg max-w-2xl mx-auto">
               Artigos, notícias e análises sobre as principais áreas do direito
             </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#b28947] to-[#e6c980] mx-auto mt-4" />
+            <div className="w-24 h-1 bg-gradient-to-r from-[#957152] to-[#e0ba9b] mx-auto mt-4" />
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -51,17 +51,17 @@ export default function BlogPage() {
                       />
                     </div>
                   ) : (
-                    <div className="h-48 bg-gradient-to-br from-[#b28947]/20 to-[#031127]/10 flex items-center justify-center">
+                    <div className="h-48 bg-gradient-to-br from-[#957152]/20 to-[#031127]/10 flex items-center justify-center">
                       {(() => {
                         const Icon = getArticleIcon(article.iconType)
-                        return <Icon className="w-20 h-20 text-[#b28947]" />
+                        return <Icon className="w-20 h-20 text-[#957152]" />
                       })()}
                     </div>
                   )}
                   
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-xs font-semibold text-[#b28947] uppercase tracking-wide">
+                      <span className="text-xs font-semibold text-[#957152] uppercase tracking-wide">
                         {article.category}
                       </span>
                       <div className="flex items-center gap-2 text-xs text-[#031127]/50">
@@ -81,7 +81,7 @@ export default function BlogPage() {
                       <span className="text-xs text-[#031127]/50">
                         Por {article.author}
                       </span>
-                      <span className="inline-flex items-center text-[#031127] font-semibold text-sm group-hover:text-[#b28947] transition-colors duration-100">
+                      <span className="inline-flex items-center text-[#031127] font-semibold text-sm group-hover:text-[#957152] transition-colors duration-100">
                         Ler mais
                         <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

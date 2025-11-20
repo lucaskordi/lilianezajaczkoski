@@ -183,7 +183,7 @@ export default function CustomCursor() {
         <div
           className="w-full h-full rounded-full border-2"
           style={{
-            borderColor: '#b28947',
+            borderColor: '#957152',
             background: 'transparent',
           }}
         />
@@ -201,7 +201,7 @@ export default function CustomCursor() {
         <div
           className="w-full h-full rounded-full"
           style={{
-            background: 'linear-gradient(135deg, #b28947 0%, #e6c980 100%)',
+            background: 'linear-gradient(135deg, #957152 0%, #e0ba9b 100%)',
           }}
         />
       </motion.div>

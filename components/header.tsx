@@ -97,8 +97,8 @@ export default function Header() {
         <div 
           className="absolute bottom-0 left-[10%] right-[10%] h-full"
           style={{
-            background: 'linear-gradient(to right, transparent 0%, rgba(178, 137, 71, 0.5) 20%, rgba(178, 137, 71, 0.9) 50%, rgba(178, 137, 71, 0.5) 80%, transparent 100%)',
-            boxShadow: '0 0 12px rgba(178, 137, 71, 0.8), 0 0 6px rgba(230, 201, 128, 0.6), 0 0 3px rgba(178, 137, 71, 0.4)',
+            background: 'linear-gradient(to right, transparent 0%, rgba(149, 113, 82, 0.5) 20%, rgba(149, 113, 82, 0.9) 50%, rgba(149, 113, 82, 0.5) 80%, transparent 100%)',
+            boxShadow: '0 0 12px rgba(149, 113, 82, 0.8), 0 0 6px rgba(224, 186, 155, 0.6), 0 0 3px rgba(149, 113, 82, 0.4)',
           }}
         />
         <div 
@@ -111,8 +111,8 @@ export default function Header() {
           <motion.div
             className="absolute bottom-0 h-full w-[400px]"
             style={{
-              background: 'linear-gradient(to right, transparent, rgba(230, 201, 128, 1), rgba(178, 137, 71, 0.9), transparent)',
-              boxShadow: '0 0 30px rgba(230, 201, 128, 1), 0 0 15px rgba(178, 137, 71, 0.8)',
+              background: 'linear-gradient(to right, transparent, rgba(224, 186, 155, 1), rgba(149, 113, 82, 0.9), transparent)',
+              boxShadow: '0 0 30px rgba(224, 186, 155, 1), 0 0 15px rgba(149, 113, 82, 0.8)',
             }}
             animate={{
               x: ['-400px', '2000px'],
@@ -185,7 +185,7 @@ export default function Header() {
                       <span className="relative inline-block text-white/70 group-hover:text-white transition-colors duration-100 text-sm font-medium hover-smooth cursor-pointer pb-1">
                         {item.label}
                         <span 
-                          className="absolute bottom-0 left-1/2 h-[2px] bg-gradient-to-r from-[#b28947] to-[#e6c980] w-0 group-hover:w-full transition-all duration-200 ease-out"
+                          className="absolute bottom-0 left-1/2 h-[2px] bg-gradient-to-r from-[#957152] to-[#e0ba9b] w-0 group-hover:w-full transition-all duration-200 ease-out"
                           style={{ transform: 'translateX(-50%)' }}
                         />
                       </span>
@@ -200,7 +200,7 @@ export default function Header() {
                   >
                     {item.label}
                     <span
-                      className="absolute bottom-0 left-1/2 h-[2px] bg-gradient-to-r from-[#b28947] to-[#e6c980] w-0 group-hover:w-full transition-all duration-200 ease-out"
+                      className="absolute bottom-0 left-1/2 h-[2px] bg-gradient-to-r from-[#957152] to-[#e0ba9b] w-0 group-hover:w-full transition-all duration-200 ease-out"
                       style={{ transform: 'translateX(-50%)' }}
                     />
                   </motion.a>
@@ -220,7 +220,7 @@ export default function Header() {
             <motion.span
               className="absolute top-0 left-0 w-5 h-[1.5px] block origin-center rounded-full"
               style={{
-                background: 'linear-gradient(135deg, #b28947 0%, #e6c980 100%)',
+                background: 'linear-gradient(135deg, #957152 0%, #e0ba9b 100%)',
               }}
               animate={mobileMenuOpen ? { y: 9.5, rotate: 45 } : { y: 0, rotate: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -228,7 +228,7 @@ export default function Header() {
             <motion.span
               className="absolute top-2 left-0 w-5 h-[1.5px] block rounded-full"
               style={{
-                background: 'linear-gradient(135deg, #b28947 0%, #e6c980 100%)',
+                background: 'linear-gradient(135deg, #957152 0%, #e0ba9b 100%)',
               }}
               animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -236,7 +236,7 @@ export default function Header() {
             <motion.span
               className="absolute top-4 left-0 w-5 h-[1.5px] block origin-center rounded-full"
               style={{
-                background: 'linear-gradient(135deg, #b28947 0%, #e6c980 100%)',
+                background: 'linear-gradient(135deg, #957152 0%, #e0ba9b 100%)',
               }}
               animate={mobileMenuOpen ? { y: -9.5, rotate: -45 } : { y: 0, rotate: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -263,7 +263,7 @@ export default function Header() {
                   <motion.span
                     className="absolute left-0 w-5 h-[1.5px] block origin-center rounded-full"
                     style={{
-                      background: 'linear-gradient(135deg, #b28947 0%, #e6c980 100%)',
+                      background: 'linear-gradient(135deg, #957152 0%, #e0ba9b 100%)',
                       top: '50%',
                       transform: 'translateY(-50%)',
                     }}
@@ -273,7 +273,7 @@ export default function Header() {
                   <motion.span
                     className="absolute left-0 w-5 h-[1.5px] block rounded-full"
                     style={{
-                      background: 'linear-gradient(135deg, #b28947 0%, #e6c980 100%)',
+                      background: 'linear-gradient(135deg, #957152 0%, #e0ba9b 100%)',
                       top: '50%',
                       transform: 'translateY(-50%)',
                     }}
@@ -283,7 +283,7 @@ export default function Header() {
                   <motion.span
                     className="absolute left-0 w-5 h-[1.5px] block origin-center rounded-full"
                     style={{
-                      background: 'linear-gradient(135deg, #b28947 0%, #e6c980 100%)',
+                      background: 'linear-gradient(135deg, #957152 0%, #e0ba9b 100%)',
                       top: '50%',
                       transform: 'translateY(-50%)',
                     }}

@@ -43,7 +43,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           >
             <Link 
               href="/blog"
-              className="inline-flex items-center text-[#031127]/70 hover:text-[#b28947] transition-colors duration-100 mb-6"
+              className="inline-flex items-center text-[#031127]/70 hover:text-[#957152] transition-colors duration-100 mb-6"
             >
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -52,7 +52,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
             </Link>
 
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-sm font-semibold text-[#b28947] uppercase tracking-wide">
+              <span className="text-sm font-semibold text-[#957152] uppercase tracking-wide">
                 {article.category}
               </span>
               <span className="text-sm text-[#031127]/50">•</span>
@@ -84,10 +84,10 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
             )}
 
             <div className="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#b28947]/20 to-[#031127]/10 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#957152]/20 to-[#031127]/10 rounded-full flex items-center justify-center">
                 {(() => {
                   const Icon = getArticleIcon(article.iconType)
-                  return <Icon className="w-6 h-6 text-[#b28947]" />
+                  return <Icon className="w-6 h-6 text-[#957152]" />
                 })()}
               </div>
               <div>
@@ -130,7 +130,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#b28947]/10 to-[#e6c980]/5 rounded-xl p-6 border border-[#b28947]/20">
+            <div className="bg-gradient-to-br from-[#957152]/10 to-[#e0ba9b]/5 rounded-xl p-6 border border-[#957152]/20">
               <h3 className="text-xl font-serif font-bold text-[#031127] mb-3">
                 Precisa de orientação jurídica?
               </h3>
@@ -139,7 +139,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
               </p>
               <motion.a
                 href="/#contato"
-                className="relative inline-block px-8 py-4 bg-gradient-to-r from-[#b28947] to-[#e6c980] text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover-smooth"
+                className="relative inline-block px-8 py-4 bg-gradient-to-r from-[#957152] to-[#e0ba9b] text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover-smooth"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 style={{
@@ -207,15 +207,15 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
                       />
                     </div>
                   ) : (
-                    <div className="h-40 bg-gradient-to-br from-[#b28947]/20 to-[#031127]/10 flex items-center justify-center">
+                    <div className="h-40 bg-gradient-to-br from-[#957152]/20 to-[#031127]/10 flex items-center justify-center">
                       {(() => {
                         const Icon = getArticleIcon(relatedArticle.iconType)
-                        return <Icon className="w-16 h-16 text-[#b28947]" />
+                        return <Icon className="w-16 h-16 text-[#957152]" />
                       })()}
                     </div>
                   )}
                   <div className="p-6">
-                    <span className="text-xs font-semibold text-[#b28947] uppercase tracking-wide">
+                    <span className="text-xs font-semibold text-[#957152] uppercase tracking-wide">
                       {relatedArticle.category}
                     </span>
                     <h3 className="text-lg font-serif font-bold text-[#031127] mt-2 mb-2 group-hover:gold-gradient-text transition-all duration-100">
