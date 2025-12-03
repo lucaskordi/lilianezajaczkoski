@@ -59,7 +59,7 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h4 className="text-white font-semibold mb-4">Contato</h4>
             <ul className="space-y-2 text-white/60 text-sm">
-              <li>(41) 99203-1908</li>
+              <li>(41) 99954-6283</li>
               <li>contato@lilianezajaczkoski.com.br</li>
               <li>Curitiba, PR</li>
             </ul>

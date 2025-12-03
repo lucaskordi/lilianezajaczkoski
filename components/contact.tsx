@@ -29,8 +29,8 @@ export default function Contact() {
     {
       Icon: IconPhone,
       label: 'Telefone',
-      value: '(41) 99203-1908',
-      link: 'tel:+5541992031908',
+      value: '(41) 99954-6283',
+      link: 'tel:+5541999546283',
     },
     {
       Icon: IconEmail,

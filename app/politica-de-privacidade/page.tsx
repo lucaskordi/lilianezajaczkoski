@@ -142,7 +142,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <div className="space-y-2 text-[#031127]/80">
                 <p><strong>E-mail:</strong> contato@lilianezajaczkoski.com.br</p>
-                <p><strong>Telefone:</strong> (41) 99203-1908</p>
+                <p><strong>Telefone:</strong> (41) 99954-6283</p>
                 <p><strong>Endereço:</strong> Curitiba, PR</p>
               </div>
             </div>
