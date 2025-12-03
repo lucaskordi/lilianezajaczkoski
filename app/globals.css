@@ -73,3 +73,7 @@ h1, h2, h3, h4 {
   -webkit-font-smoothing: antialiased;
   transition: transform 0.1s ease-out, opacity 0.1s ease-out, box-shadow 0.1s ease-out, color 0.1s ease-out, background-color 0.1s ease-out, border-color 0.1s ease-out;
 }
+
+.auto-rows-fr {
+  grid-auto-rows: 1fr;
+}

@@ -50,7 +50,7 @@ export default function About() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full h-[600px]">
               <div className="absolute inset-0 bg-gradient-to-br from-[#957152]/20 to-[#031127]/20 z-10" />
               <Image
-                src="/fotoliliane.jpeg"
+                src="/fotoat.jpeg"
                 alt="Liliane Zajaczkoski"
                 fill
                 className="object-cover"
@@ -105,7 +105,7 @@ export default function About() {
               >
                 <p className="text-sm text-[#031127]/60 mb-3">Áreas de Atuação</p>
                 <div className="grid grid-cols-2 gap-2">
-                  {['Direito Criminal', 'Direito Tributário', 'Direito Previdenciário', 'Direito Trabalhista', 'Direito Cível', 'Consultas & Pareceres'].map((area, index) => (
+                  {['Direito Criminal', 'Direito de Família e Sucessões', 'Direito Previdenciário', 'Direito Cível', 'Direito Tributário', 'Direito Trabalhista', 'Direito Empresarial', 'Direito Digital'].map((area, index) => (
                     <p key={area} className="font-semibold text-[#031127] text-sm">
                       {area}
                     </p>
