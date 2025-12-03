@@ -92,7 +92,7 @@ export default function About() {
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
               >
                 <p className="text-sm text-[#031127]/60 mb-1">OAB/PR</p>
-                <p className="font-semibold text-[#031127]">123.456</p>
+                <p className="font-semibold text-[#031127]">132.747</p>
               </motion.div>
 
               <motion.div

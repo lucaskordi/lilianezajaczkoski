@@ -71,7 +71,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Liliane Zajaczkoski. Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-6">
-            <p className="text-white/60 text-sm">OAB/PR 123.456</p>
+            <p className="text-white/60 text-sm">OAB/PR 132.747</p>
             <a href="/politica-de-privacidade" className="text-white/60 hover:text-[#957152] text-sm transition-colors duration-100">
               Política de Privacidade
             </a>
