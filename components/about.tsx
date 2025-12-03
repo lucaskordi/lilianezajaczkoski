@@ -47,7 +47,7 @@ export default function About() {
             className="relative md:-mt-12"
             style={{ y }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full h-[700px] md:h-[750px]">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full h-[500px] md:h-[550px]">
               <div className="absolute inset-0 bg-gradient-to-br from-[#957152]/20 to-[#031127]/20 z-10" />
               <Image
                 src="/fotoat.jpg"
@@ -82,7 +82,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="space-y-4 pt-6">
+            <div className="pt-6">
               <motion.div
                 className="p-4 bg-gradient-to-br from-gray-50 to-white rounded-lg border border-gray-100 hover-smooth"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -93,41 +93,6 @@ export default function About() {
               >
                 <p className="text-sm text-[#031127]/60 mb-1">OAB/PR</p>
                 <p className="font-semibold text-[#031127]">132.747</p>
-              </motion.div>
-
-              <motion.div
-                className="p-4 bg-gradient-to-br from-gray-50 to-white rounded-lg border border-gray-100 hover-smooth"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.15, duration: 0.1 }}
-                whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
-              >
-                <p className="text-sm text-[#031127]/60 mb-3">Áreas de Atuação</p>
-                <div className="grid grid-cols-2 gap-2">
-                  {[
-                    'Direito Criminal',
-                    'Direito de Família e Sucessões',
-                    'Direito Previdenciário',
-                    'Direito Cível',
-                    'Direito Tributário',
-                    'Direito Trabalhista',
-                    'Consultas & Pareceres Jurídicos',
-                    'Mediação e Arbitragem',
-                    'Direito Imobiliário',
-                    'Direito Empresarial',
-                    'Direito Digital',
-                    'Direito do Consumidor',
-                    'Direito Ambiental',
-                    'Direito Administrativo',
-                    'Direito de Trânsito',
-                    'Direito Internacional'
-                  ].map((area, index) => (
-                    <p key={area} className="font-semibold text-[#031127] text-sm">
-                      {area}
-                    </p>
-                  ))}
-                </div>
               </motion.div>
             </div>
           </motion.div>
