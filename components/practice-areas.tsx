@@ -254,7 +254,6 @@ export default function PracticeAreas() {
                           hoveredIndex === globalIndex ? 'border-[#957152]/50 bg-white/10 shadow-lg shadow-[#957152]/10' : ''
                         }`}
                         whileHover={{ y: -5 }}
-                        transition={{ duration: 0.1, ease: 'easeOut' }}
                       >
                         <motion.div
                           className="w-12 h-12 rounded-lg flex items-center justify-center mb-6 text-[#957152] border border-[#957152]/20 bg-[#957152]/5 flex-shrink-0"
