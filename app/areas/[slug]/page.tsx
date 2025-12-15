@@ -121,7 +121,7 @@ export default function PracticeAreaPage({ params }: { params: { slug: string } 
                   priority
                   quality={90}
                   sizes="(max-width: 768px) 100vw, 1200px"
-                  unoptimized={area.coverImage === '/comp.webp'}
+                  unoptimized
                 />
               </div>
             </motion.div>
