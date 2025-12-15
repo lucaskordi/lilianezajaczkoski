@@ -135,7 +135,7 @@ export default function Header() {
               transition={{ duration: 0.1, ease: 'easeOut' }}
             >
               <Image
-                src="/lzatff.svg"
+                src="/lilianeatfv.svg"
                 alt="Liliane Zajaczkoski - Advocacia & Consultoria"
                 width={260}
                 height={74}
@@ -153,7 +153,7 @@ export default function Header() {
             transition={{ duration: 0.1, ease: 'easeOut' }}
           >
             <Image
-              src="/lzatff.svg"
+              src="/lilianeatfv.svg"
               alt="Liliane Zajaczkoski - Advocacia & Consultoria"
               width={260}
               height={74}
@@ -349,7 +349,7 @@ export default function Header() {
                   className="mt-12"
                 >
                   <Image
-                    src="/lzatff.svg"
+                    src="/lilianeatfv.svg"
                     alt="Liliane Zajaczkoski - Advocacia & Consultoria"
                     width={360}
                     height={100}
