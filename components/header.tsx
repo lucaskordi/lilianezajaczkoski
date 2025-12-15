@@ -137,9 +137,9 @@ export default function Header() {
               <Image
                 src="/lzajalogo.svg"
                 alt="Liliane Zajaczkoski - Advocacia & Consultoria"
-                width={200}
-                height={56}
-                className="h-10 md:h-12 w-auto max-w-[200px]"
+                width={260}
+                height={74}
+                className="h-[52px] md:h-[60px] w-auto max-w-[260px]"
                 priority
                 style={{ objectFit: 'contain', maxWidth: '100%' }}
               />
@@ -155,9 +155,9 @@ export default function Header() {
             <Image
               src="/lzajalogo.svg"
               alt="Liliane Zajaczkoski - Advocacia & Consultoria"
-              width={200}
-              height={56}
-              className="h-10 md:h-12 w-auto max-w-[200px]"
+              width={260}
+              height={74}
+              className="h-[52px] md:h-[60px] w-auto max-w-[260px]"
               priority
               style={{ objectFit: 'contain', maxWidth: '100%' }}
             />
@@ -351,9 +351,9 @@ export default function Header() {
                   <Image
                     src="/lzajalogo.svg"
                     alt="Liliane Zajaczkoski - Advocacia & Consultoria"
-                    width={200}
-                    height={56}
-                    className="h-12 w-auto max-w-[200px]"
+                    width={360}
+                    height={100}
+                    className="h-20 w-auto max-w-[360px]"
                     style={{ objectFit: 'contain', maxWidth: '100%' }}
                   />
                 </motion.div>
