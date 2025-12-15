@@ -112,7 +112,7 @@ export default function PracticeAreaPage({ params }: { params: { slug: string } 
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mb-12 rounded-2xl overflow-hidden shadow-xl"
             >
-              <div className="relative w-full h-64 md:h-96">
+              <div className="relative w-full h-64 md:h-96 bg-gray-100">
                 <Image
                   src={area.coverImage}
                   alt={area.title}
@@ -121,6 +121,7 @@ export default function PracticeAreaPage({ params }: { params: { slug: string } 
                   priority
                   quality={90}
                   sizes="(max-width: 768px) 100vw, 1200px"
+                  unoptimized={area.coverImage === '/comp.webp'}
                 />
               </div>
             </motion.div>
