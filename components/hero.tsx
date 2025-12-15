@@ -124,10 +124,11 @@ export default function Hero() {
             className="space-y-8"
           >
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-serif text-white font-light leading-[1.1] tracking-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-serif text-white font-light leading-[1.3] tracking-tight pb-2"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+              style={{ lineHeight: '1.3', paddingBottom: '0.5rem' }}
             >
               Advocacia com{' '}
               <span className="gold-gradient-text font-normal">Visão Estratégica</span>
