@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect, useRef, useCallback } from 'react'
+import Link from 'next/link'
 import { IconScale, IconConsult } from './icons'
 import { 
   IoCalculator, 
@@ -20,89 +21,31 @@ import {
   IoCart
 } from 'react-icons/io5'
 import GoldSweep from './gold-sweep'
+import { practiceAreas } from '@/data/practice-areas'
 
-const areas = [
-  {
-    title: 'Direito Criminal',
-    description: 'Defesa em processos criminais, inquéritos policiais e medidas cautelares.',
-    Icon: IconScale,
-  },
-  {
-    title: 'Direito de Família e Sucessões',
-    description: 'Divórcios, guarda e visita de filhos, pensão alimentícia, inventários e testamentos.',
-    Icon: IoPeople,
-  },
-  {
-    title: 'Direito Previdenciário',
-    description: 'Aposentadorias, benefícios, revisões e contestações junto ao INSS.',
-    Icon: IoShieldCheckmark,
-  },
-  {
-    title: 'Direito Cível',
-    description: 'Ações de indenização, contratos, responsabilidade civil e direito do consumidor.',
-    Icon: IoDocumentText,
-  },
-  {
-    title: 'Direito Tributário',
-    description: 'Consultoria, planejamento tributário, defesas administrativas e judiciais.',
-    Icon: IoCalculator,
-  },
-  {
-    title: 'Direito Trabalhista',
-    description: 'Ações trabalhistas, rescisões, acordos e defesa de empregados ou empregadores.',
-    Icon: IoBriefcase,
-  },
-  {
-    title: 'Consultas & Pareceres Jurídicos',
-    description: 'Análise de contratos, elaboração de pareceres e orientação estratégica.',
-    Icon: IconConsult,
-  },
-  {
-    title: 'Mediação e Arbitragem',
-    description: 'Resolução de conflitos de forma extrajudicial, rápida e eficaz.',
-    Icon: IoContract,
-  },
-  {
-    title: 'Direito Imobiliário',
-    description: 'Compra, venda, locação de imóveis, contratos e disputas condominiais.',
-    Icon: IoHome,
-  },
-  {
-    title: 'Direito Empresarial',
-    description: 'Abertura de empresas, contratos empresariais, recuperação judicial e societário.',
-    Icon: IoBusiness,
-  },
-  {
-    title: 'Direito Digital',
-    description: 'Proteção de dados, crimes cibernéticos, contratos e regulamentações online.',
-    Icon: IoLockClosed,
-  },
-  {
-    title: 'Direito do Consumidor',
-    description: 'Cobranças indevidas, defeitos de produtos e serviços, ações de reparação.',
-    Icon: IoCart,
-  },
-  {
-    title: 'Direito Ambiental',
-    description: 'Licenciamento, responsabilidades e ações relacionadas ao meio ambiente.',
-    Icon: IoLeaf,
-  },
-  {
-    title: 'Direito Administrativo',
-    description: 'Questões com órgãos públicos, concursos, licitações e contratos administrativos.',
-    Icon: IoHammer,
-  },
-  {
-    title: 'Direito de Trânsito',
-    description: 'Recursos de multas, defesa em infrações e acidentes.',
-    Icon: IoCar,
-  },
-  {
-    title: 'Direito Internacional',
-    description: 'Imigração, contratos internacionais e comércio exterior.',
-    Icon: IoGlobe,
-  },
-]
+const iconMap: Record<string, any> = {
+  scale: IconScale,
+  shield: IoShieldCheckmark,
+  briefcase: IoBriefcase,
+  document: IoDocumentText,
+  home: IoHome,
+  business: IoBusiness,
+  globe: IoGlobe,
+  car: IoCar,
+  family: IoPeople,
+  leaf: IoLeaf,
+  hammer: IoHammer,
+  contract: IoContract,
+  lock: IoLockClosed,
+  cart: IoCart,
+  consult: IconConsult,
+  chart: IoCalculator,
+}
+
+const areas = practiceAreas.map(area => ({
+  ...area,
+  Icon: iconMap[area.iconType] || IoDocumentText,
+}))
 
 export default function PracticeAreas() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -117,7 +60,7 @@ export default function PracticeAreas() {
       } else if (window.innerWidth < 1024) {
         setCardsPerView(2)
       } else {
-        setCardsPerView(5)
+        setCardsPerView(3)
       }
     }
     
@@ -220,7 +163,7 @@ export default function PracticeAreas() {
             </GoldSweep>
         </motion.div>
 
-        <div className="relative px-12 md:px-16" style={{ height: '400px' }}>
+        <div className="relative px-12 md:px-16" style={{ height: '450px' }}>
           <div className="h-full py-5">
             <AnimatePresence mode="wait">
               <motion.div
@@ -234,7 +177,7 @@ export default function PracticeAreas() {
                     ? 'grid-cols-1' 
                     : cardsPerView === 2 
                     ? 'grid-cols-1 md:grid-cols-2' 
-                    : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-5'
+                    : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
                 }`}
               >
                 {getVisibleCards().map((area, index) => {
@@ -267,9 +210,24 @@ export default function PracticeAreas() {
                           {area.title}
                         </h3>
                         
-                        <p className="text-white/70 leading-relaxed text-sm flex-grow">
+                        <p className="text-white/70 leading-relaxed text-sm flex-grow mb-4">
                           {area.description}
                         </p>
+                        
+                        <motion.div
+                          whileHover={{ scale: 1.02, y: -2 }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          <Link
+                            href={`/areas/${area.slug}`}
+                            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#957152] to-[#e0ba9b] text-white font-medium rounded-full text-sm shadow-lg hover:shadow-xl transition-all duration-300 hover-smooth mt-auto flex-shrink-0 w-fit"
+                          >
+                            Saiba mais
+                            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </Link>
+                        </motion.div>
                       </motion.div>
                     </div>
                   )
@@ -311,25 +269,6 @@ export default function PracticeAreas() {
           ))}
         </div>
 
-        <motion.div
-          className="text-center mt-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <motion.a
-            href="#contato"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#957152] to-[#e0ba9b] text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover-smooth"
-            whileHover={{ scale: 1.02, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Saiba mais
-            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </motion.a>
-        </motion.div>
       </div>
     </section>
   )
