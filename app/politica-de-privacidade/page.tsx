@@ -141,7 +141,7 @@ export default function PrivacyPolicyPage() {
                 Para exercer seus direitos ou esclarecer dúvidas sobre esta Política de Privacidade, entre em contato conosco:
               </p>
               <div className="space-y-2 text-[#031127]/80">
-                <p><strong>E-mail:</strong> contato@lilianezajaczkoski.com.br</p>
+                <p><strong>E-mail:</strong> adv.zajali@gmail.com</p>
                 <p><strong>Telefone:</strong> (41) 99954-6283</p>
                 <p><strong>Endereço:</strong> Curitiba, PR</p>
               </div>

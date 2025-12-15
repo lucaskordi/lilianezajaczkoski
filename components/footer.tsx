@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <div className="mb-4 flex justify-center md:justify-start">
               <Image
-                src="/logolzatfinal.svg"
+                src="/lzajalogo.svg"
                 alt="Liliane Zajaczkoski - Advocacia & Consultoria"
                 width={200}
                 height={56}
@@ -60,7 +60,7 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Contato</h4>
             <ul className="space-y-2 text-white/60 text-sm">
               <li>(41) 99954-6283</li>
-              <li>contato@lilianezajaczkoski.com.br</li>
+              <li>adv.zajali@gmail.com</li>
               <li>Curitiba, PR</li>
             </ul>
           </div>

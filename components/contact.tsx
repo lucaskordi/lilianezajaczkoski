@@ -35,8 +35,8 @@ export default function Contact() {
     {
       Icon: IconEmail,
       label: 'E-mail',
-      value: 'contato@lilianezajaczkoski.com.br',
-      link: 'mailto:contato@lilianezajaczkoski.com.br',
+      value: 'adv.zajali@gmail.com',
+      link: 'mailto:adv.zajali@gmail.com',
     },
   ]
 
