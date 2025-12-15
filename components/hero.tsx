@@ -32,6 +32,7 @@ export default function Hero() {
           style={{ objectPosition: 'center top' }}
           priority
           quality={90}
+          sizes="100vw"
         />
       </motion.div>
       {/* Animated Wavy Gold Background */}

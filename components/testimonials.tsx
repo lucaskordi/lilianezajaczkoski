@@ -63,7 +63,7 @@ export default function Testimonials() {
   return (
     <section
       id="depoimentos"
-      className="py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
+      className="py-32 bg-gradient-to-br from-[#EFE8D9] to-[#EFE8D9] relative overflow-hidden"
     >
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
@@ -95,7 +95,7 @@ export default function Testimonials() {
         <div className="relative max-w-4xl mx-auto flex items-center gap-2 md:gap-4">
           <motion.button
             onClick={prevSlide}
-            className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-all duration-100 group hover-smooth flex-shrink-0 z-10"
+            className="w-10 h-10 md:w-12 md:h-12 bg-[#EFE8D9] rounded-full shadow-lg flex items-center justify-center hover:bg-[#E5DCC5] transition-all duration-100 group hover-smooth flex-shrink-0 z-10"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.1, ease: 'easeOut' }}
@@ -144,7 +144,7 @@ export default function Testimonials() {
 
           <motion.button
             onClick={nextSlide}
-            className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-all duration-100 group hover-smooth flex-shrink-0 z-10"
+            className="w-10 h-10 md:w-12 md:h-12 bg-[#EFE8D9] rounded-full shadow-lg flex items-center justify-center hover:bg-[#E5DCC5] transition-all duration-100 group hover-smooth flex-shrink-0 z-10"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.1, ease: 'easeOut' }}

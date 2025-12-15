@@ -16,7 +16,7 @@ export default function About() {
   return (
     <section
       id="sobre"
-      className="py-32 bg-white relative overflow-hidden"
+      className="py-32 bg-[#EFE8D9] relative overflow-hidden"
     >
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
@@ -55,6 +55,7 @@ export default function About() {
                 fill
                 className="object-cover"
                 quality={90}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#957152] to-[#e0ba9b] rounded-2xl opacity-20 blur-2xl pointer-events-none" />
@@ -84,7 +85,7 @@ export default function About() {
 
             <div className="pt-6">
               <motion.div
-                className="p-4 bg-gradient-to-br from-gray-50 to-white rounded-lg border border-gray-100 hover-smooth"
+                className="p-4 bg-gradient-to-br from-[#EFE8D9] to-[#EFE8D9] rounded-lg border border-gray-100 hover-smooth"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}

@@ -64,7 +64,7 @@ export default function PracticeAreaPage({ params }: { params: { slug: string } 
   const Icon = iconMap[area.iconType] || IoDocumentText
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#EFE8D9]">
       <Header />
       
       <article className="pt-32 pb-20">
@@ -120,6 +120,7 @@ export default function PracticeAreaPage({ params }: { params: { slug: string } 
                   className="object-cover"
                   priority
                   quality={90}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
             </motion.div>
@@ -134,7 +135,7 @@ export default function PracticeAreaPage({ params }: { params: { slug: string } 
             {area.content.map((paragraph, index) => (
               <p 
                 key={index}
-                className="text-[#031127]/80 leading-relaxed mb-6 text-lg"
+                className="text-[#031127]/80 leading-relaxed mb-6 text-lg text-justify"
               >
                 {paragraph}
               </p>

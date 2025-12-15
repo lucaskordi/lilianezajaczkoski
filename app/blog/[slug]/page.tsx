@@ -30,7 +30,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
     .slice(0, 3)
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#EFE8D9]">
       <Header />
       
       <article className="pt-32 pb-20">
@@ -78,6 +78,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
                     className="object-cover"
                     priority
                     quality={90}
+                    sizes="(max-width: 768px) 100vw, 1200px"
                   />
                 </div>
               </motion.div>
@@ -184,7 +185,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       </article>
 
       {relatedArticles.length > 0 && (
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-20 bg-gradient-to-br from-[#EFE8D9] to-[#EFE8D9]">
           <div className="max-w-7xl mx-auto px-6 md:px-10">
             <h2 className="text-3xl font-serif font-bold text-[#031127] mb-8">
               Artigos Relacionados

@@ -13,7 +13,7 @@ export default function Blog() {
   return (
     <section
       id="blog"
-      className="py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
+      className="py-32 bg-gradient-to-br from-[#EFE8D9] to-[#EFE8D9] relative overflow-hidden"
     >
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
@@ -63,6 +63,7 @@ export default function Blog() {
                       className="object-cover"
                       quality={85}
                       priority={index === 0}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                 ) : (

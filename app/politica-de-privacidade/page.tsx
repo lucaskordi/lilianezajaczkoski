@@ -7,10 +7,10 @@ import { motion } from 'framer-motion'
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#EFE8D9]">
       <Header />
       
-      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-[#EFE8D9] to-[#EFE8D9]">
         <div className="max-w-4xl mx-auto px-6 md:px-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

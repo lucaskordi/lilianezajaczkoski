@@ -10,10 +10,10 @@ import { motion } from 'framer-motion'
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#EFE8D9]">
       <Header />
       
-      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-[#EFE8D9] to-[#EFE8D9]">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -48,6 +48,7 @@ export default function BlogPage() {
                         fill
                         className="object-cover"
                         quality={85}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
                   ) : (

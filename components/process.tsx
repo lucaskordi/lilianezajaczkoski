@@ -42,7 +42,7 @@ export default function Process() {
   return (
     <section
       id="processos"
-      className="py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
+      className="py-32 bg-gradient-to-br from-[#EFE8D9] to-[#EFE8D9] relative overflow-hidden"
     >
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
