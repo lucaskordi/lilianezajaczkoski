@@ -129,8 +129,10 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             >
-              Defesa Estratégica com{' '}
-              <span className="gold-gradient-text font-normal">Excelência Jurídica</span>
+              Advocacia com{' '}
+              <span className="gold-gradient-text font-normal">Visão Estratégica</span>
+              {' '}e{' '}
+              <span className="gold-gradient-text font-normal">Sensibilidade Humana</span>
             </motion.h1>
 
             <motion.p

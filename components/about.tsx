@@ -42,12 +42,12 @@ export default function About() {
           </GoldSweep>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16 md:items-center">
+        <div className="grid md:grid-cols-2 gap-16 md:items-stretch">
           <motion.div
-            className="relative md:-mt-12"
+            className="relative md:-mt-12 flex"
             style={{ y }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full h-[500px] md:h-[550px]">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full h-full min-h-[500px] md:min-h-[550px]">
               <div className="absolute inset-0 bg-gradient-to-br from-[#957152]/20 to-[#031127]/20 z-10" />
               <Image
                 src="/fotoat.jpg"
@@ -66,20 +66,27 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6 flex flex-col justify-center"
+            className="space-y-6 flex flex-col justify-center h-full"
           >
             <h3 className="text-3xl font-serif font-bold text-[#031127]">
               Liliane Zajaczkoski
             </h3>
             
-            <div className="space-y-4 text-[#031127]/80 leading-relaxed">
+            <div className="space-y-4 text-[#031127]/80 leading-relaxed text-justify">
               <p>
-                Advogada especializada em múltiplas áreas do direito, atuando com dedicação e comprometimento em cada caso. 
-                Com sólida formação acadêmica e foco em oferecer soluções jurídicas estratégicas e personalizadas.
+                Atuação no Direito Civil, com foco em Família, Sucessões e Holding Familiar, oferecendo soluções jurídicas seguras, estratégicas e alinhadas à realidade de cada cliente.
               </p>
               <p>
-                Com abordagem ética, transparente e focada em resultados, oferece atendimento especializado nas principais 
-                áreas do direito. Sua dedicação e conhecimento técnico garantem a melhor defesa dos interesses de seus clientes.
+                Cada caso é analisado de forma individualizada, desde a fase preventiva e pré-contenciosa até a condução completa dos processos judiciais e extrajudiciais, sempre com atenção técnica, responsabilidade e planejamento.
+              </p>
+              <p>
+                Com uma postura conciliatória e humanizada, o atendimento é pautado pela escuta ativa, empatia e transparência, buscando resultados justos, eficazes e sustentáveis, especialmente em demandas que envolvem relações familiares, patrimônio e decisões sensíveis.
+              </p>
+              <p>
+                Para demandas em outras áreas do Direito, o escritório conta com equipe jurídica especializada e parceiros multidisciplinares, garantindo uma atuação integrada e segura conforme a complexidade de cada caso.
+              </p>
+              <p>
+                O compromisso com a confidencialidade, proteção de dados e ética profissional assegura tranquilidade e confiança em todas as etapas do atendimento.
               </p>
             </div>
 
