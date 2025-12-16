@@ -170,7 +170,7 @@ export default function PracticeAreaPage({ params }: { params: { slug: string } 
                 tag="p"
                 className="text-[#031127]/70 mb-6 text-lg"
               >
-                {`Entre em contato para uma consulta especializada sobre ${area.title.toLowerCase()}. Estamos prontos para ajudar você.`}
+                Entre em contato para uma consulta especializada sobre esta área. Estamos prontos para ajudar você.
               </EditableText>
             </div>
           </motion.div>
