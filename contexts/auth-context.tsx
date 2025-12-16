@@ -22,10 +22,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter()
 
   useEffect(() => {
-    const auth = localStorage.getItem('admin_authenticated')
-    if (auth === 'true') {
-      setIsAuthenticated(true)
+    const checkAuth = () => {
+      const auth = localStorage.getItem('admin_authenticated')
+      setIsAuthenticated(auth === 'true')
     }
+
+    checkAuth()
 
     const saved = localStorage.getItem('admin_pending_changes')
     if (saved) {
@@ -49,11 +51,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         console.error('Error loading saved content:', e)
       }
     }
+
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'admin_authenticated') {
+        checkAuth()
+      }
+    }
+
+    const handleCustomStorageChange = () => {
+      checkAuth()
+    }
+
+    window.addEventListener('storage', handleStorageChange)
+    window.addEventListener('adminAuthChange', handleCustomStorageChange)
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange)
+      window.removeEventListener('adminAuthChange', handleCustomStorageChange)
+    }
   }, [])
 
   const login = () => {
     localStorage.setItem('admin_authenticated', 'true')
     setIsAuthenticated(true)
+    window.dispatchEvent(new Event('adminAuthChange'))
   }
 
   const logout = () => {
@@ -61,6 +82,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     localStorage.removeItem('admin_pending_changes')
     setIsAuthenticated(false)
     setPendingChangesState({})
+    window.dispatchEvent(new Event('adminAuthChange'))
     router.push('/adm')
   }
 

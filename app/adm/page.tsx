@@ -3,19 +3,21 @@
 import { useState, FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
+import { useAuth } from '@/contexts/auth-context'
 
 export default function AdminLogin() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const router = useRouter()
+  const { login } = useAuth()
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     setError('')
 
     if (username === 'lilizaja' && password === 'sitelilizaja2026') {
-      localStorage.setItem('admin_authenticated', 'true')
+      login()
       router.push('/')
     } else {
       setError('Usuário ou senha incorretos')
@@ -88,6 +90,17 @@ export default function AdminLogin() {
               Entrar
             </motion.button>
           </form>
+
+          <div className="mt-6 pt-6 border-t border-gray-200">
+            <motion.a
+              href="/"
+              className="block w-full px-6 py-3 bg-white border border-gray-200 text-[#031127] font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-300 text-center"
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Ir para o Início
+            </motion.a>
+          </div>
         </div>
       </motion.div>
     </main>
