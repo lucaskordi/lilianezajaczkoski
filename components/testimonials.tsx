@@ -159,7 +159,7 @@ export default function Testimonials() {
                       tag="p"
                       className="text-[#031127]/60 text-xs md:text-sm mt-1"
                     >
-                      {testimonials[currentIndex].role} • {testimonials[currentIndex].company}
+                      {`${testimonials[currentIndex].role} • ${testimonials[currentIndex].company}`}
                     </EditableText>
                   </div>
                 </div>
