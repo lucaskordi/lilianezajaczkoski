@@ -33,7 +33,7 @@ async function getContent() {
       const content = await (client as any).get(CONTENT_KEY)
       return content ? JSON.parse(content) : {}
     } else {
-      const content = await (client as any).get<Record<string, string>>(CONTENT_KEY)
+      const content = await (client as any).get(CONTENT_KEY) as Record<string, string> | null
       return content || {}
     }
   } catch (e) {
