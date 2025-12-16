@@ -18,14 +18,42 @@ Para que o sistema de edição funcione no Vercel, você precisa configurar o Ve
    - `KV_REST_API_TOKEN`
    - `KV_REST_API_READ_ONLY_TOKEN`
 
-3. **Instalar dependências:**
+3. **Puxar variáveis de ambiente localmente:**
+   
+   **IMPORTANTE:** Este comando é executado no seu terminal local (não no dashboard do Vercel).
+   
+   Abra o terminal na pasta do projeto e execute:
+   ```bash
+   vercel env pull .env.development.local
+   ```
+   
+   Se você não tiver a CLI do Vercel instalada, instale primeiro:
+   ```bash
+   npm i -g vercel
+   ```
+   
+   Depois faça login (se necessário):
+   ```bash
+   vercel login
+   ```
+   
+   Isso criará um arquivo `.env.development.local` com as variáveis de ambiente do Vercel.
+
+4. **Instalar dependências:**
    ```bash
    npm install
    ```
 
-4. **Deploy:**
-   Faça o deploy normalmente. O Vercel KV já estará configurado automaticamente.
+5. **Testar localmente:**
+   ```bash
+   npm run dev
+   ```
+
+6. **Deploy:**
+   Faça o deploy normalmente. O Vercel KV já estará configurado automaticamente em produção.
 
 ## Nota:
-Se você estiver testando localmente, o Vercel KV também funciona. As variáveis de ambiente serão carregadas automaticamente do seu projeto Vercel.
+- O arquivo `.env.development.local` está no `.gitignore` e não será commitado
+- As variáveis de ambiente são automaticamente disponibilizadas em produção no Vercel
+- Você pode testar o sistema de edição localmente após puxar as variáveis de ambiente
 
