@@ -20,29 +20,33 @@ export default function EditableMultilineText({
   const { isAuthenticated, pendingChanges, setPendingChanges } = useAuth()
   const [isEditing, setIsEditing] = useState(false)
   const [value, setValue] = useState(paragraphs.join('\n\n'))
+  const [displayValue, setDisplayValue] = useState(paragraphs.join('\n\n'))
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
-  const savedContent = localStorage.getItem('admin_saved_content')
-  let displayValue = paragraphs.join('\n\n')
-
-  if (savedContent) {
-    try {
-      const content = JSON.parse(savedContent)
-      if (content[id]) {
-        displayValue = content[id]
-      }
-    } catch (e) {
-      console.error('Error loading saved content:', e)
-    }
-  }
-
-  if (pendingChanges[id]) {
-    displayValue = pendingChanges[id]
-  }
-
   useEffect(() => {
-    setValue(displayValue)
-  }, [displayValue])
+    let finalValue = paragraphs.join('\n\n')
+
+    if (typeof window !== 'undefined') {
+      const savedContent = localStorage.getItem('admin_saved_content')
+      if (savedContent) {
+        try {
+          const content = JSON.parse(savedContent)
+          if (content[id]) {
+            finalValue = content[id]
+          }
+        } catch (e) {
+          console.error('Error loading saved content:', e)
+        }
+      }
+    }
+
+    if (pendingChanges[id]) {
+      finalValue = pendingChanges[id]
+    }
+
+    setDisplayValue(finalValue)
+    setValue(finalValue)
+  }, [paragraphs, id, pendingChanges])
 
   useEffect(() => {
     if (isEditing && textareaRef.current) {

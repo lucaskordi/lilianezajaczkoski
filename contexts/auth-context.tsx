@@ -22,6 +22,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter()
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
+
     const checkAuth = () => {
       const auth = localStorage.getItem('admin_authenticated')
       setIsAuthenticated(auth === 'true')
@@ -72,27 +74,35 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const login = () => {
-    localStorage.setItem('admin_authenticated', 'true')
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('admin_authenticated', 'true')
+      window.dispatchEvent(new Event('adminAuthChange'))
+    }
     setIsAuthenticated(true)
-    window.dispatchEvent(new Event('adminAuthChange'))
   }
 
   const logout = () => {
-    localStorage.removeItem('admin_authenticated')
-    localStorage.removeItem('admin_pending_changes')
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('admin_authenticated')
+      localStorage.removeItem('admin_pending_changes')
+      window.dispatchEvent(new Event('adminAuthChange'))
+    }
     setIsAuthenticated(false)
     setPendingChangesState({})
-    window.dispatchEvent(new Event('adminAuthChange'))
     router.push('/adm')
   }
 
   const setPendingChanges = (changes: Record<string, string>) => {
     const updated = { ...pendingChanges, ...changes }
     setPendingChangesState(updated)
-    localStorage.setItem('admin_pending_changes', JSON.stringify(updated))
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('admin_pending_changes', JSON.stringify(updated))
+    }
   }
 
   const saveChanges = () => {
+    if (typeof window === 'undefined') return
+
     const savedContent = localStorage.getItem('admin_saved_content')
     let existingContent: Record<string, string> = {}
     
@@ -111,7 +121,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   const discardChanges = () => {
-    localStorage.removeItem('admin_pending_changes')
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('admin_pending_changes')
+    }
     setPendingChangesState({})
   }
 

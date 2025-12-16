@@ -22,31 +22,35 @@ export default function EditableText({
   const { isAuthenticated, pendingChanges, setPendingChanges } = useAuth()
   const [isEditing, setIsEditing] = useState(false)
   const [value, setValue] = useState(children)
+  const [displayValue, setDisplayValue] = useState(children)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
-  const savedContent = localStorage.getItem('admin_saved_content')
-  let displayValue = children
-
-  if (savedContent) {
-    try {
-      const content = JSON.parse(savedContent)
-      if (content[id]) {
-        displayValue = content[id]
-      }
-    } catch (e) {
-      console.error('Error loading saved content:', e)
-    }
-  }
-
-  if (pendingChanges[id]) {
-    displayValue = pendingChanges[id]
-  }
-
   useEffect(() => {
-    if (!isEditing) {
-      setValue(displayValue)
+    let finalValue = children
+
+    if (typeof window !== 'undefined') {
+      const savedContent = localStorage.getItem('admin_saved_content')
+      if (savedContent) {
+        try {
+          const content = JSON.parse(savedContent)
+          if (content[id]) {
+            finalValue = content[id]
+          }
+        } catch (e) {
+          console.error('Error loading saved content:', e)
+        }
+      }
     }
-  }, [displayValue, isEditing])
+
+    if (pendingChanges[id]) {
+      finalValue = pendingChanges[id]
+    }
+
+    setDisplayValue(finalValue)
+    if (!isEditing) {
+      setValue(finalValue)
+    }
+  }, [children, id, pendingChanges, isEditing])
 
   useEffect(() => {
     if (isEditing && textareaRef.current) {
