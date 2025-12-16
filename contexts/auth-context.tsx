@@ -31,26 +31,46 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     checkAuth()
 
-    const saved = localStorage.getItem('admin_pending_changes')
-    if (saved) {
+    const loadContent = async () => {
       try {
-        setPendingChangesState(JSON.parse(saved))
+        const response = await fetch('/api/admin/content')
+        if (response.ok) {
+          const content = await response.json()
+          if (Object.keys(content).length > 0) {
+            const saved = localStorage.getItem('admin_pending_changes')
+            const pending = saved ? JSON.parse(saved) : {}
+            const merged = { ...content }
+            Object.keys(pending).forEach((key) => {
+              if (!merged[key]) {
+                merged[key] = pending[key]
+              }
+            })
+            setPendingChangesState(merged)
+          }
+        }
       } catch (e) {
-        console.error('Error loading pending changes:', e)
+        console.error('Error loading content from server:', e)
+        const saved = localStorage.getItem('admin_saved_content')
+        if (saved) {
+          try {
+            const content = JSON.parse(saved)
+            setPendingChangesState(content)
+          } catch (err) {
+            console.error('Error loading from localStorage:', err)
+          }
+        }
       }
     }
 
-    const savedContent = localStorage.getItem('admin_saved_content')
-    if (savedContent) {
+    loadContent()
+
+    const saved = localStorage.getItem('admin_pending_changes')
+    if (saved) {
       try {
-        const content = JSON.parse(savedContent)
-        Object.keys(content).forEach((key) => {
-          if (!pendingChanges[key]) {
-            setPendingChangesState((prev) => ({ ...prev, [key]: content[key] }))
-          }
-        })
+        const pending = JSON.parse(saved)
+        setPendingChangesState((prev) => ({ ...prev, ...pending }))
       } catch (e) {
-        console.error('Error loading saved content:', e)
+        console.error('Error loading pending changes:', e)
       }
     }
 
@@ -100,24 +120,52 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  const saveChanges = () => {
+  const saveChanges = async () => {
     if (typeof window === 'undefined') return
 
-    const savedContent = localStorage.getItem('admin_saved_content')
-    let existingContent: Record<string, string> = {}
-    
-    if (savedContent) {
-      try {
-        existingContent = JSON.parse(savedContent)
-      } catch (e) {
-        console.error('Error loading saved content:', e)
-      }
-    }
+    try {
+      const response = await fetch('/api/admin/content', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content: pendingChanges }),
+      })
 
-    const newContent = { ...existingContent, ...pendingChanges }
-    localStorage.setItem('admin_saved_content', JSON.stringify(newContent))
-    localStorage.removeItem('admin_pending_changes')
-    setPendingChangesState({})
+      if (response.ok) {
+        const result = await response.json()
+        if (result.success) {
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('admin_saved_content', JSON.stringify(result.content))
+            localStorage.removeItem('admin_pending_changes')
+          }
+          setPendingChangesState({})
+          alert('Alterações salvas com sucesso!')
+        } else {
+          throw new Error('Failed to save')
+        }
+      } else {
+        throw new Error('Failed to save')
+      }
+    } catch (error) {
+      console.error('Error saving content:', error)
+      const savedContent = localStorage.getItem('admin_saved_content')
+      let existingContent: Record<string, string> = {}
+      
+      if (savedContent) {
+        try {
+          existingContent = JSON.parse(savedContent)
+        } catch (e) {
+          console.error('Error loading saved content:', e)
+        }
+      }
+
+      const newContent = { ...existingContent, ...pendingChanges }
+      localStorage.setItem('admin_saved_content', JSON.stringify(newContent))
+      localStorage.removeItem('admin_pending_changes')
+      setPendingChangesState({})
+      alert('Alterações salvas localmente (erro ao salvar no servidor)')
+    }
   }
 
   const discardChanges = () => {

@@ -26,30 +26,44 @@ export default function EditableText({
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
-    let finalValue = children
+    const loadContent = async () => {
+      let finalValue = children
 
-    if (typeof window !== 'undefined') {
-      const savedContent = localStorage.getItem('admin_saved_content')
-      if (savedContent) {
+      if (typeof window !== 'undefined') {
         try {
-          const content = JSON.parse(savedContent)
-          if (content[id]) {
-            finalValue = content[id]
+          const response = await fetch('/api/admin/content')
+          if (response.ok) {
+            const content = await response.json()
+            if (content[id]) {
+              finalValue = content[id]
+            }
           }
         } catch (e) {
-          console.error('Error loading saved content:', e)
+          const savedContent = localStorage.getItem('admin_saved_content')
+          if (savedContent) {
+            try {
+              const content = JSON.parse(savedContent)
+              if (content[id]) {
+                finalValue = content[id]
+              }
+            } catch (err) {
+              console.error('Error loading saved content:', err)
+            }
+          }
         }
+      }
+
+      if (pendingChanges[id]) {
+        finalValue = pendingChanges[id]
+      }
+
+      setDisplayValue(finalValue)
+      if (!isEditing) {
+        setValue(finalValue)
       }
     }
 
-    if (pendingChanges[id]) {
-      finalValue = pendingChanges[id]
-    }
-
-    setDisplayValue(finalValue)
-    if (!isEditing) {
-      setValue(finalValue)
-    }
+    loadContent()
   }, [children, id, pendingChanges, isEditing])
 
   useEffect(() => {
