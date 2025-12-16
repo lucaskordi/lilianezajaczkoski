@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import EditableText from './editable-text'
 
 export default function Footer() {
   return (
@@ -25,9 +26,13 @@ export default function Footer() {
                 style={{ objectFit: 'contain', maxWidth: '100%' }}
               />
             </div>
-            <p className="text-white/60 text-sm leading-relaxed">
+            <EditableText
+              id="footer-description"
+              tag="p"
+              className="text-white/60 text-sm leading-relaxed"
+            >
               Advocacia especializada com excelência e dedicação em cada caso.
-            </p>
+            </EditableText>
           </div>
 
           <div className="text-center md:text-left">
@@ -59,9 +64,30 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h4 className="text-white font-semibold mb-4">Contato</h4>
             <ul className="space-y-2 text-white/60 text-sm">
-              <li>(41) 99954-6283</li>
-              <li>adv.zajali@gmail.com</li>
-              <li>Curitiba, PR</li>
+              <li>
+                <EditableText
+                  id="footer-phone"
+                  tag="span"
+                >
+                  (41) 99954-6283
+                </EditableText>
+              </li>
+              <li>
+                <EditableText
+                  id="footer-email"
+                  tag="span"
+                >
+                  adv.zajali@gmail.com
+                </EditableText>
+              </li>
+              <li>
+                <EditableText
+                  id="footer-location"
+                  tag="span"
+                >
+                  Curitiba, PR
+                </EditableText>
+              </li>
             </ul>
           </div>
         </div>

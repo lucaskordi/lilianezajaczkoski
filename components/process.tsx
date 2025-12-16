@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { IconDocument } from './icons'
 import { IoCall, IoAnalytics, IoStatsChart, IoCheckmarkCircle } from 'react-icons/io5'
 import GoldSweep from './gold-sweep'
+import EditableText from './editable-text'
 
 const steps = [
   {
@@ -60,12 +61,20 @@ export default function Process() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#031127] mb-4">
+          <EditableText
+            id="process-title"
+            tag="h2"
+            className="text-4xl md:text-5xl font-serif font-bold text-[#031127] mb-4"
+          >
             Como Funciona
-          </h2>
-          <p className="text-[#031127]/70 text-lg max-w-2xl mx-auto">
+          </EditableText>
+          <EditableText
+            id="process-subtitle"
+            tag="p"
+            className="text-[#031127]/70 text-lg max-w-2xl mx-auto"
+          >
             Processo transparente e eficiente para garantir os melhores resultados
-          </p>
+          </EditableText>
           <GoldSweep isLine className="w-24 h-1 mx-auto mt-4">
             <div className="w-full h-full bg-gradient-to-r from-[#957152] to-[#e0ba9b]" />
           </GoldSweep>
@@ -111,12 +120,20 @@ export default function Process() {
                       <step.Icon className="w-8 h-8" />
                     </motion.div>
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-[#031127] mb-3 group-hover:gold-gradient-text transition-all duration-100">
+                  <EditableText
+                    id={`process-step-${step.number}-title`}
+                    tag="h3"
+                    className="text-xl font-serif font-bold text-[#031127] mb-3 group-hover:gold-gradient-text transition-all duration-100"
+                  >
                     {step.title}
-                  </h3>
-                  <p className="text-[#031127]/70 text-sm leading-relaxed flex-grow">
+                  </EditableText>
+                  <EditableText
+                    id={`process-step-${step.number}-description`}
+                    tag="p"
+                    className="text-[#031127]/70 text-sm leading-relaxed flex-grow"
+                  >
                     {step.description}
-                  </p>
+                  </EditableText>
                 </motion.div>
               </motion.div>
             ))}

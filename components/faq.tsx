@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import GoldSweep from './gold-sweep'
+import EditableText from './editable-text'
 
 const faqs = [
   {
@@ -44,12 +45,20 @@ export default function FAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
+          <EditableText
+            id="faq-title"
+            tag="h2"
+            className="text-4xl md:text-5xl font-serif font-bold text-white mb-4"
+          >
             Perguntas Frequentes
-          </h2>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
+          </EditableText>
+          <EditableText
+            id="faq-subtitle"
+            tag="p"
+            className="text-white/70 text-lg max-w-2xl mx-auto"
+          >
             Tire suas dúvidas sobre nossos serviços e processos
-          </p>
+          </EditableText>
           <GoldSweep isLine className="w-24 h-1 mx-auto mt-4">
             <div className="w-full h-full bg-gradient-to-r from-[#957152] to-[#e0ba9b]" />
           </GoldSweep>
@@ -69,9 +78,13 @@ export default function FAQ() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-6 py-5 flex items-center justify-between text-left group"
               >
-                <span className="text-white font-semibold pr-4 group-hover:text-[#957152] transition-colors duration-100">
+                <EditableText
+                  id={`faq-${index}-question`}
+                  tag="span"
+                  className="text-white font-semibold pr-4 group-hover:text-[#957152] transition-colors duration-100"
+                >
                   {faq.question}
-                </span>
+                </EditableText>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -92,7 +105,13 @@ export default function FAQ() {
                     className="overflow-hidden"
                   >
                     <div className="px-6 pb-5 text-white/70 leading-relaxed">
-                      {faq.answer}
+                      <EditableText
+                        id={`faq-${index}-answer`}
+                        tag="p"
+                        className="text-white/70 leading-relaxed"
+                      >
+                        {faq.answer}
+                      </EditableText>
                     </div>
                   </motion.div>
                 )}

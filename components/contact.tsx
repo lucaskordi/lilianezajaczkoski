@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { IconPhone, IconEmail } from './icons'
 import GoldSweep from './gold-sweep'
+import EditableText from './editable-text'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -58,12 +59,20 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
+          <EditableText
+            id="contact-title"
+            tag="h2"
+            className="text-4xl md:text-5xl font-serif font-bold text-white mb-4"
+          >
             Entre em Contato
-          </h2>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
+          </EditableText>
+          <EditableText
+            id="contact-subtitle"
+            tag="p"
+            className="text-white/70 text-lg max-w-2xl mx-auto"
+          >
             Estamos prontos para ajudar você. Entre em contato e agende sua consulta.
-          </p>
+          </EditableText>
           <GoldSweep isLine className="w-24 h-1 mx-auto mt-4">
             <div className="w-full h-full bg-gradient-to-r from-[#957152] to-[#e0ba9b]" />
           </GoldSweep>
@@ -92,10 +101,20 @@ export default function Contact() {
                   <info.Icon className="w-10 h-10" />
                 </div>
                 <div>
-                  <p className="text-white/60 text-sm mb-2">{info.label}</p>
-                  <p className="text-white font-semibold text-lg group-hover:text-[#957152] transition-colors duration-100">
+                  <EditableText
+                    id={`contact-${info.label.toLowerCase()}-label`}
+                    tag="p"
+                    className="text-white/60 text-sm mb-2"
+                  >
+                    {info.label}
+                  </EditableText>
+                  <EditableText
+                    id={`contact-${info.label.toLowerCase()}-value`}
+                    tag="p"
+                    className="text-white font-semibold text-lg group-hover:text-[#957152] transition-colors duration-100"
+                  >
                     {info.value}
-                  </p>
+                  </EditableText>
                 </div>
               </motion.a>
             ))}

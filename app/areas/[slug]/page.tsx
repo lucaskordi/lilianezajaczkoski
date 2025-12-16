@@ -9,6 +9,8 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import EditableText from '@/components/editable-text'
+import EditableMultilineText from '@/components/editable-multiline-text'
 import { 
   IoCalculator, 
   IoShieldCheckmark, 
@@ -96,13 +98,21 @@ export default function PracticeAreaPage({ params }: { params: { slug: string } 
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#031127] mb-6 leading-tight">
+            <EditableText
+              id={`area-${area.slug}-title`}
+              tag="h1"
+              className="text-4xl md:text-5xl font-serif font-bold text-[#031127] mb-6 leading-tight"
+            >
               {area.title}
-            </h1>
+            </EditableText>
 
-            <p className="text-xl text-[#031127]/70 mb-8 leading-relaxed">
+            <EditableText
+              id={`area-${area.slug}-description`}
+              tag="p"
+              className="text-xl text-[#031127]/70 mb-8 leading-relaxed"
+            >
               {area.description}
-            </p>
+            </EditableText>
           </motion.div>
 
           {area.coverImage && (
@@ -133,14 +143,12 @@ export default function PracticeAreaPage({ params }: { params: { slug: string } 
             transition={{ duration: 0.6, delay: 0.2 }}
             className="prose prose-lg max-w-none"
           >
-            {area.content.map((paragraph, index) => (
-              <p 
-                key={index}
-                className="text-[#031127]/80 leading-relaxed mb-6 text-lg text-justify"
-              >
-                {paragraph}
-              </p>
-            ))}
+            <EditableMultilineText
+              id={`area-${area.slug}-content`}
+              paragraphs={area.content}
+              className="prose prose-lg max-w-none"
+              paragraphClassName="text-[#031127]/80 leading-relaxed mb-6 text-lg text-justify"
+            />
           </motion.div>
 
           <motion.div
@@ -150,12 +158,20 @@ export default function PracticeAreaPage({ params }: { params: { slug: string } 
             className="mt-12 pt-8 border-t border-gray-200"
           >
             <div className="bg-gradient-to-br from-[#957152]/10 to-[#e0ba9b]/5 rounded-xl p-8 border border-[#957152]/20">
-              <h3 className="text-2xl font-serif font-bold text-[#031127] mb-4">
+              <EditableText
+                id={`area-${area.slug}-cta-title`}
+                tag="h3"
+                className="text-2xl font-serif font-bold text-[#031127] mb-4"
+              >
                 Precisa de orientação jurídica nesta área?
-              </h3>
-              <p className="text-[#031127]/70 mb-6 text-lg">
+              </EditableText>
+              <EditableText
+                id={`area-${area.slug}-cta-text`}
+                tag="p"
+                className="text-[#031127]/70 mb-6 text-lg"
+              >
                 Entre em contato para uma consulta especializada sobre {area.title.toLowerCase()}. Estamos prontos para ajudar você.
-              </p>
+              </EditableText>
             </div>
           </motion.div>
         </div>

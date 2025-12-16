@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useAuth } from '@/contexts/auth-context'
 
 const navItems = [
   { label: 'Início', href: '#inicio' },
@@ -25,6 +26,7 @@ export default function Header() {
   const pathname = usePathname()
   const isHomePage = pathname === '/'
   const isNotHomePage = !isHomePage
+  const { isAuthenticated } = useAuth()
 
   useEffect(() => {
     setMounted(true)
@@ -79,9 +81,9 @@ export default function Header() {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+      className={`fixed left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}
+      } ${isAuthenticated ? 'top-[60px]' : 'top-0'}`}
       style={{
         transform: isVisible ? 'translateY(0px)' : 'translateY(-100%)',
       }}

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import CursorWrapper from '@/components/cursor-wrapper'
+import { AuthProvider } from '@/contexts/auth-context'
+import AdminBar from '@/components/admin-bar'
 
 export const metadata: Metadata = {
   title: 'Liliane Zajaczkoski - Advocacia',
@@ -20,9 +22,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        <CursorWrapper>
-          {children}
-        </CursorWrapper>
+        <AuthProvider>
+          <CursorWrapper>
+            <AdminBar />
+            {children}
+          </CursorWrapper>
+        </AuthProvider>
       </body>
     </html>
   )

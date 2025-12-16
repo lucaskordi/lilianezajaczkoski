@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
+import EditableText from './editable-text'
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null)
@@ -123,27 +124,36 @@ export default function Hero() {
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-8"
           >
-            <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-serif text-white font-light leading-[1.3] tracking-tight pb-2"
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
               style={{ lineHeight: '1.3', paddingBottom: '0.5rem' }}
             >
-              Advocacia com{' '}
-              <span className="gold-gradient-text font-normal">Visão Estratégica</span>
-              {' '}e{' '}
-              <span className="gold-gradient-text font-normal">Sensibilidade Humana</span>
-            </motion.h1>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-white font-light leading-[1.3] tracking-tight pb-2">
+                <EditableText
+                  id="hero-title"
+                  tag="span"
+                  className=""
+                >
+                  Advocacia com Visão Estratégica e Sensibilidade Humana
+                </EditableText>
+              </h1>
+            </motion.div>
 
-            <motion.p
-              className="text-xl md:text-2xl text-white/80 font-light max-w-2xl mx-auto leading-relaxed"
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
             >
-              Advocacia especializada em múltiplas áreas do direito com atuação ética, precisa e focada em resultados
-            </motion.p>
+              <EditableText
+                id="hero-subtitle"
+                tag="p"
+                className="text-xl md:text-2xl text-white/80 font-light max-w-2xl mx-auto leading-relaxed"
+              >
+                Advocacia especializada em múltiplas áreas do direito com atuação ética, precisa e focada em resultados
+              </EditableText>
+            </motion.div>
 
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
@@ -215,7 +225,13 @@ export default function Hero() {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-white/40 text-xs font-light tracking-widest uppercase">role para baixo</span>
+          <EditableText
+            id="hero-scroll-text"
+            tag="span"
+            className="text-white/40 text-xs font-light tracking-widest uppercase"
+          >
+            role para baixo
+          </EditableText>
           <svg className="w-5 h-5 text-white/40" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>

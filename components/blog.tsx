@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { articles } from '@/data/articles'
 import { getArticleIcon } from '@/utils/article-icons'
 import GoldSweep from './gold-sweep'
+import EditableText from './editable-text'
 
 const featuredArticles = articles.slice(0, 3)
 
@@ -31,12 +32,20 @@ export default function Blog() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#031127] mb-4">
+          <EditableText
+            id="blog-section-title"
+            tag="h2"
+            className="text-4xl md:text-5xl font-serif font-bold text-[#031127] mb-4"
+          >
             Artigos e Notícias
-          </h2>
-          <p className="text-[#031127]/70 text-lg max-w-2xl mx-auto">
+          </EditableText>
+          <EditableText
+            id="blog-section-subtitle"
+            tag="p"
+            className="text-[#031127]/70 text-lg max-w-2xl mx-auto"
+          >
             Mantenha-se informado sobre as últimas novidades do mundo jurídico
-          </p>
+          </EditableText>
           <GoldSweep isLine className="w-24 h-1 mx-auto mt-4">
             <div className="w-full h-full bg-gradient-to-r from-[#957152] to-[#e0ba9b]" />
           </GoldSweep>
@@ -85,13 +94,21 @@ export default function Blog() {
                     </div>
                   </div>
                   
-                    <h3 className="text-xl font-serif font-bold text-[#031127] mb-3 group-hover:gold-gradient-text transition-all duration-100">
+                    <EditableText
+                      id={`blog-card-${article.slug}-title`}
+                      tag="h3"
+                      className="text-xl font-serif font-bold text-[#031127] mb-3 group-hover:gold-gradient-text transition-all duration-100"
+                    >
                       {article.title}
-                    </h3>
+                    </EditableText>
                   
-                  <p className="text-[#031127]/70 text-sm leading-relaxed mb-4">
+                  <EditableText
+                    id={`blog-card-${article.slug}-excerpt`}
+                    tag="p"
+                    className="text-[#031127]/70 text-sm leading-relaxed mb-4"
+                  >
                     {article.excerpt}
-                  </p>
+                  </EditableText>
                   
                   <span className="inline-flex items-center text-[#031127] font-semibold text-sm group-hover:text-[#957152] transition-colors duration-100">
                     Ler mais

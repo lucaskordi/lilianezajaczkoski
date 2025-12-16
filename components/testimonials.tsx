@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import GoldSweep from './gold-sweep'
+import EditableText from './editable-text'
 
 const testimonials = [
   {
@@ -81,12 +82,20 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#031127] mb-4">
+          <EditableText
+            id="testimonials-title"
+            tag="h2"
+            className="text-4xl md:text-5xl font-serif font-bold text-[#031127] mb-4"
+          >
             Depoimentos
-          </h2>
-          <p className="text-[#031127]/70 text-lg max-w-2xl mx-auto">
+          </EditableText>
+          <EditableText
+            id="testimonials-subtitle"
+            tag="p"
+            className="text-[#031127]/70 text-lg max-w-2xl mx-auto"
+          >
             O que nossos clientes dizem sobre nosso trabalho
-          </p>
+          </EditableText>
           <GoldSweep isLine className="w-24 h-1 mx-auto mt-4">
             <div className="w-full h-full bg-gradient-to-r from-[#957152] to-[#e0ba9b]" />
           </GoldSweep>
@@ -121,9 +130,13 @@ export default function Testimonials() {
                 <div className="flex flex-col items-center justify-center min-h-full text-center space-y-4 md:space-y-6 py-2">
                   <div className="text-4xl md:text-6xl text-[#957152] mb-1 md:mb-4 flex-shrink-0">"</div>
                   
-                  <p className="text-sm md:text-xl lg:text-2xl text-[#031127]/80 leading-relaxed font-light max-w-3xl flex-grow flex items-center px-2">
+                  <EditableText
+                    id={`testimonial-${currentIndex}-text`}
+                    tag="p"
+                    className="text-sm md:text-xl lg:text-2xl text-[#031127]/80 leading-relaxed font-light max-w-3xl flex-grow flex items-center px-2"
+                  >
                     {testimonials[currentIndex].text}
-                  </p>
+                  </EditableText>
 
                   <div className="flex gap-1 mb-2 md:mb-4 flex-shrink-0">
                     {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
@@ -134,8 +147,20 @@ export default function Testimonials() {
                   </div>
 
                   <div className="flex-shrink-0">
-                    <p className="font-bold text-[#031127] text-sm md:text-lg">{testimonials[currentIndex].name}</p>
-                    <p className="text-[#031127]/60 text-xs md:text-sm mt-1">{testimonials[currentIndex].role} • {testimonials[currentIndex].company}</p>
+                    <EditableText
+                      id={`testimonial-${currentIndex}-name`}
+                      tag="p"
+                      className="font-bold text-[#031127] text-sm md:text-lg"
+                    >
+                      {testimonials[currentIndex].name}
+                    </EditableText>
+                    <EditableText
+                      id={`testimonial-${currentIndex}-role`}
+                      tag="p"
+                      className="text-[#031127]/60 text-xs md:text-sm mt-1"
+                    >
+                      {testimonials[currentIndex].role} • {testimonials[currentIndex].company}
+                    </EditableText>
                   </div>
                 </div>
               </motion.div>

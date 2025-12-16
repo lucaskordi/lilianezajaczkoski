@@ -7,6 +7,7 @@ import Footer from '@/components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import EditableText from '@/components/editable-text'
 
 export default function BlogPage() {
   return (
@@ -21,12 +22,20 @@ export default function BlogPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-[#031127] mb-4">
+            <EditableText
+              id="blog-page-title"
+              tag="h1"
+              className="text-5xl md:text-6xl font-serif font-bold text-[#031127] mb-4"
+            >
               Blog Jurídico
-            </h1>
-            <p className="text-[#031127]/70 text-lg max-w-2xl mx-auto">
+            </EditableText>
+            <EditableText
+              id="blog-page-subtitle"
+              tag="p"
+              className="text-[#031127]/70 text-lg max-w-2xl mx-auto"
+            >
               Artigos, notícias e análises sobre as principais áreas do direito
-            </p>
+            </EditableText>
             <div className="w-24 h-1 bg-gradient-to-r from-[#957152] to-[#e0ba9b] mx-auto mt-4" />
           </motion.div>
 
@@ -70,13 +79,21 @@ export default function BlogPage() {
                       </div>
                     </div>
                     
-                    <h2 className="text-xl font-serif font-bold text-[#031127] mb-3 group-hover:gold-gradient-text transition-all duration-100">
+                    <EditableText
+                      id={`blog-list-${article.slug}-title`}
+                      tag="h2"
+                      className="text-xl font-serif font-bold text-[#031127] mb-3 group-hover:gold-gradient-text transition-all duration-100"
+                    >
                       {article.title}
-                    </h2>
+                    </EditableText>
                     
-                    <p className="text-[#031127]/70 text-sm leading-relaxed mb-4">
+                    <EditableText
+                      id={`blog-list-${article.slug}-excerpt`}
+                      tag="p"
+                      className="text-[#031127]/70 text-sm leading-relaxed mb-4"
+                    >
                       {article.excerpt}
-                    </p>
+                    </EditableText>
                     
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-[#031127]/50">

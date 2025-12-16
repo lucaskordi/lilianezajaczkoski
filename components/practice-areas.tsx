@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { IconScale, IconConsult } from './icons'
+import EditableText from './editable-text'
 import { 
   IoCalculator, 
   IoShieldCheckmark, 
@@ -152,12 +153,20 @@ export default function PracticeAreas() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
+          <EditableText
+            id="practice-areas-title"
+            tag="h2"
+            className="text-4xl md:text-5xl font-serif font-bold text-white mb-4"
+          >
             Áreas de Atuação
-          </h2>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
+          </EditableText>
+          <EditableText
+            id="practice-areas-subtitle"
+            tag="p"
+            className="text-white/70 text-lg max-w-2xl mx-auto"
+          >
             Expertise em múltiplas áreas do direito para atender todas as suas necessidades jurídicas
-          </p>
+          </EditableText>
             <GoldSweep isLine className="w-24 h-1 mx-auto mt-4">
               <div className="w-full h-full bg-gradient-to-r from-[#957152] to-[#e0ba9b]" />
             </GoldSweep>
@@ -206,13 +215,21 @@ export default function PracticeAreas() {
                           <area.Icon className="w-6 h-6" />
                         </motion.div>
                         
-                        <h3 className="text-xl font-serif font-bold text-white mb-3 group-hover:text-[#957152] transition-colors duration-100 flex-shrink-0">
+                        <EditableText
+                          id={`practice-area-${area.slug}-title`}
+                          tag="h3"
+                          className="text-xl font-serif font-bold text-white mb-3 group-hover:text-[#957152] transition-colors duration-100 flex-shrink-0"
+                        >
                           {area.title}
-                        </h3>
+                        </EditableText>
                         
-                        <p className="text-white/70 leading-relaxed text-sm flex-grow mb-4">
+                        <EditableText
+                          id={`practice-area-${area.slug}-description`}
+                          tag="p"
+                          className="text-white/70 leading-relaxed text-sm flex-grow mb-4"
+                        >
                           {area.description}
-                        </p>
+                        </EditableText>
                         
                         <motion.div
                           whileHover={{ scale: 1.02, y: -2 }}

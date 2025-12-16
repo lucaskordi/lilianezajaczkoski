@@ -4,6 +4,8 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 import GoldSweep from './gold-sweep'
+import EditableText from './editable-text'
+import EditableMultilineText from './editable-multiline-text'
 
 export default function About() {
   const ref = useRef<HTMLDivElement>(null)
@@ -34,9 +36,13 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#031127] mb-4">
+          <EditableText
+            id="about-title"
+            tag="h2"
+            className="text-4xl md:text-5xl font-serif font-bold text-[#031127] mb-4"
+          >
             Sobre Mim
-          </h2>
+          </EditableText>
           <GoldSweep isLine className="w-24 h-1 mx-auto">
             <div className="w-full h-full bg-gradient-to-r from-[#957152] to-[#e0ba9b]" />
           </GoldSweep>
@@ -68,27 +74,26 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6 flex flex-col justify-center h-full"
           >
-            <h3 className="text-3xl font-serif font-bold text-[#031127]">
+            <EditableText
+              id="about-name"
+              tag="h3"
+              className="text-3xl font-serif font-bold text-[#031127]"
+            >
               Liliane Zajaczkoski
-            </h3>
+            </EditableText>
             
-            <div className="space-y-4 text-[#031127]/80 leading-relaxed text-justify">
-              <p>
-                Atuação no Direito Civil, com foco em Família, Sucessões e Holding Familiar, oferecendo soluções jurídicas seguras, estratégicas e alinhadas à realidade de cada cliente.
-              </p>
-              <p>
-                Cada caso é analisado de forma individualizada, desde a fase preventiva e pré-contenciosa até a condução completa dos processos judiciais e extrajudiciais, sempre com atenção técnica, responsabilidade e planejamento.
-              </p>
-              <p>
-                Com uma postura conciliatória e humanizada, o atendimento é pautado pela escuta ativa, empatia e transparência, buscando resultados justos, eficazes e sustentáveis, especialmente em demandas que envolvem relações familiares, patrimônio e decisões sensíveis.
-              </p>
-              <p>
-                Para demandas em outras áreas do Direito, o escritório conta com equipe jurídica especializada e parceiros multidisciplinares, garantindo uma atuação integrada e segura conforme a complexidade de cada caso.
-              </p>
-              <p>
-                O compromisso com a confidencialidade, proteção de dados e ética profissional assegura tranquilidade e confiança em todas as etapas do atendimento.
-              </p>
-            </div>
+            <EditableMultilineText
+              id="about-content"
+              paragraphs={[
+                'Atuação no Direito Civil, com foco em Família, Sucessões e Holding Familiar, oferecendo soluções jurídicas seguras, estratégicas e alinhadas à realidade de cada cliente.',
+                'Cada caso é analisado de forma individualizada, desde a fase preventiva e pré-contenciosa até a condução completa dos processos judiciais e extrajudiciais, sempre com atenção técnica, responsabilidade e planejamento.',
+                'Com uma postura conciliatória e humanizada, o atendimento é pautado pela escuta ativa, empatia e transparência, buscando resultados justos, eficazes e sustentáveis, especialmente em demandas que envolvem relações familiares, patrimônio e decisões sensíveis.',
+                'Para demandas em outras áreas do Direito, o escritório conta com equipe jurídica especializada e parceiros multidisciplinares, garantindo uma atuação integrada e segura conforme a complexidade de cada caso.',
+                'O compromisso com a confidencialidade, proteção de dados e ética profissional assegura tranquilidade e confiança em todas as etapas do atendimento.',
+              ]}
+              className="space-y-4"
+              paragraphClassName="text-[#031127]/80 leading-relaxed text-justify"
+            />
 
             <div className="pt-6">
               <motion.div
@@ -99,8 +104,20 @@ export default function About() {
                 transition={{ delay: 0.1, duration: 0.1 }}
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
               >
-                <p className="text-sm text-[#031127]/60 mb-1">OAB/PR</p>
-                <p className="font-semibold text-[#031127]">132.747</p>
+                <EditableText
+                  id="about-oab-label"
+                  tag="p"
+                  className="text-sm text-[#031127]/60 mb-1"
+                >
+                  OAB/PR
+                </EditableText>
+                <EditableText
+                  id="about-oab-number"
+                  tag="p"
+                  className="font-semibold text-[#031127]"
+                >
+                  132.747
+                </EditableText>
               </motion.div>
             </div>
           </motion.div>

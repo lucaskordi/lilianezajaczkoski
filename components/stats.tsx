@@ -4,6 +4,7 @@ import { motion, useInView, useSpring, useTransform } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { IconScale } from './icons'
 import { IoTime, IoCheckmarkCircle, IoBarChart } from 'react-icons/io5'
+import EditableText from './editable-text'
 
 const stats = [
   { number: '6+', label: 'Áreas de Atuação', Icon: IconScale, numericValue: 6 },
@@ -96,7 +97,13 @@ export default function Stats() {
                   </>
                 )}
               </motion.h3>
-              <p className="text-[#031127]/70 font-medium">{stat.label}</p>
+              <EditableText
+                id={`stat-${index}-label`}
+                tag="p"
+                className="text-[#031127]/70 font-medium"
+              >
+                {stat.label}
+              </EditableText>
             </motion.div>
           ))}
         </div>

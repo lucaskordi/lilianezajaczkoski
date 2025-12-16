@@ -9,6 +9,8 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import EditableText from '@/components/editable-text'
+import EditableMultilineText from '@/components/editable-multiline-text'
 
 export default function ArticlePage({ params }: { params: { slug: string } }) {
   const { slug } = params
@@ -59,9 +61,13 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
               <span className="text-sm text-[#031127]/50">{article.readTime} de leitura</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#031127] mb-6 leading-tight">
+            <EditableText
+              id={`article-${article.slug}-title`}
+              tag="h1"
+              className="text-4xl md:text-5xl font-serif font-bold text-[#031127] mb-6 leading-tight"
+            >
               {article.title}
-            </h1>
+            </EditableText>
 
             {article.coverImage && (
               <motion.div
@@ -104,14 +110,12 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="prose prose-lg max-w-none"
           >
-            {article.content.map((paragraph, index) => (
-              <p 
-                key={index}
-                className="text-[#031127]/80 leading-relaxed mb-6 text-lg"
-              >
-                {paragraph}
-              </p>
-            ))}
+            <EditableMultilineText
+              id={`article-${article.slug}-content`}
+              paragraphs={article.content}
+              className="prose prose-lg max-w-none"
+              paragraphClassName="text-[#031127]/80 leading-relaxed mb-6 text-lg text-justify"
+            />
           </motion.div>
 
           <motion.div
@@ -132,12 +136,20 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
             </div>
 
             <div className="bg-gradient-to-br from-[#957152]/10 to-[#e0ba9b]/5 rounded-xl p-6 border border-[#957152]/20">
-              <h3 className="text-xl font-serif font-bold text-[#031127] mb-3">
+              <EditableText
+                id={`article-${article.slug}-cta-title`}
+                tag="h3"
+                className="text-xl font-serif font-bold text-[#031127] mb-3"
+              >
                 Precisa de orientação jurídica?
-              </h3>
-              <p className="text-[#031127]/70 mb-4">
+              </EditableText>
+              <EditableText
+                id={`article-${article.slug}-cta-text`}
+                tag="p"
+                className="text-[#031127]/70 mb-4"
+              >
                 Entre em contato para uma consulta especializada sobre este assunto.
-              </p>
+              </EditableText>
               <motion.a
                 href="/#contato"
                 className="relative inline-block px-8 py-4 bg-gradient-to-r from-[#957152] to-[#e0ba9b] text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover-smooth"
