@@ -132,39 +132,43 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ content: pendingChanges }),
       })
 
-      if (response.ok) {
-        const result = await response.json()
-        if (result.success) {
-          if (typeof window !== 'undefined') {
-            localStorage.setItem('admin_saved_content', JSON.stringify(result.content))
-            localStorage.removeItem('admin_pending_changes')
-          }
-          setPendingChangesState({})
-          alert('Alterações salvas com sucesso!')
-        } else {
-          throw new Error('Failed to save')
-        }
-      } else {
-        throw new Error('Failed to save')
-      }
-    } catch (error) {
-      console.error('Error saving content:', error)
-      const savedContent = localStorage.getItem('admin_saved_content')
-      let existingContent: Record<string, string> = {}
-      
-      if (savedContent) {
-        try {
-          existingContent = JSON.parse(savedContent)
-        } catch (e) {
-          console.error('Error loading saved content:', e)
-        }
-      }
+      const result = await response.json()
 
-      const newContent = { ...existingContent, ...pendingChanges }
-      localStorage.setItem('admin_saved_content', JSON.stringify(newContent))
-      localStorage.removeItem('admin_pending_changes')
-      setPendingChangesState({})
-      alert('Alterações salvas localmente (erro ao salvar no servidor)')
+      if (response.ok && result.success) {
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('admin_saved_content', JSON.stringify(result.content))
+          localStorage.removeItem('admin_pending_changes')
+        }
+        setPendingChangesState({})
+        alert('Alterações salvas com sucesso!')
+      } else {
+        const errorMessage = result.details || result.error || 'Erro desconhecido'
+        throw new Error(errorMessage)
+      }
+    } catch (error: any) {
+      console.error('Error saving content:', error)
+      const errorMessage = error?.message || 'Erro ao conectar com o servidor'
+      
+      if (errorMessage.includes('Vercel KV not configured')) {
+        alert('Vercel KV não está configurado. Por favor, configure o Vercel KV no dashboard do Vercel (Storage > Create Database > KV).')
+      } else {
+        const savedContent = localStorage.getItem('admin_saved_content')
+        let existingContent: Record<string, string> = {}
+        
+        if (savedContent) {
+          try {
+            existingContent = JSON.parse(savedContent)
+          } catch (e) {
+            console.error('Error loading saved content:', e)
+          }
+        }
+
+        const newContent = { ...existingContent, ...pendingChanges }
+        localStorage.setItem('admin_saved_content', JSON.stringify(newContent))
+        localStorage.removeItem('admin_pending_changes')
+        setPendingChangesState({})
+        alert(`Alterações salvas localmente. Erro no servidor: ${errorMessage}`)
+      }
     }
   }
 
